@@ -1,0 +1,14 @@
+.login
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 20vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.form
+{
+  padding: 12vh;
+}
