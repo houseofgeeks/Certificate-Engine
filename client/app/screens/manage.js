@@ -15,7 +15,7 @@ function changeState(i,ref)
   else
   {
     if(ref.state.x2 === 0)ref.setState({x2: 1});
-    else ref.setState({y2: 0});
+    else ref.setState({x2: 0});
     if(ref.state.y2 === 0)ref.setState({y2: 1});
     else ref.setState({y2: 0});
   }
@@ -63,10 +63,8 @@ class manage extends React.Component
     render() {
         return (
             <View style={styles.Container}>
-              <ImageBackground source={require("../assets/background.jpg")} style={styles.Background}>
-                {makecard(0,this)}
-                {makecard(1,this)}
-              </ImageBackground>
+              {makecard(0,this)}
+              {makecard(1,this)}
             </View>
         );
     }

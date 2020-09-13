@@ -11,26 +11,21 @@ const styles = StyleSheet.create({
       width: wp('100%'),
       resizeMode:"stretch",
     },
-    Background:
-    {
-      flex: 1,
-      resizeMode: "contain",
-      justifyContent: "center"
-    },
     Card:
     {
       marginLeft: hp('5%'),
       marginRight: hp('5%'),
       marginBottom: hp('7%'),
       padding: hp('5%'),
-      backgroundColor : "#aae9fa"
+      backgroundColor : "#bdeaff",
     },
     CardText:
     {
       justifyContent: "center",
       marginBottom: hp('2%'),
-    }
-
+      fontWeight: "bold",
+      color: "red"
+    },
 });
 
 export default styles;

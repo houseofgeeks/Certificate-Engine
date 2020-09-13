@@ -5,30 +5,21 @@ const styles = StyleSheet.create({
     Container:
     {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
     },
-    Background:
-    {
-      flex: 1,
-      resizeMode: "contain",
-      justifyContent: "center"
-    },
-    Logo1:
+    Logo:
     {
         height: hp('50%'),
         width: wp('100%'),
         justifyContent: 'center',
         resizeMode:"contain"
     },
-    Logo2:
+    Button:
     {
-        height: hp('30%'),
-        width: wp('100%'),
-        justifyContent: 'center',
-        resizeMode:"contain"
-    },
+      margin: wp('2%'),
+      justifyContent: 'center',
+    }
 });
-
 
 export default styles;

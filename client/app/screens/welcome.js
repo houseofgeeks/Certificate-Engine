@@ -1,5 +1,5 @@
 import React from "react";
-import {View, TouchableOpacity, Image , ImageBackground} from 'react-native';
+import {View, TouchableOpacity, Image, Button} from 'react-native';
 import styles from "../screens/styles/welcome.js";
 
 class welcome extends React.Component
@@ -11,12 +11,13 @@ class welcome extends React.Component
     render() {
         return (
             <View style={styles.Container}>
-                <ImageBackground source={require("../assets/background.jpg")} style={styles.Background}>
-                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('scanner',{})}}>
-                        <Image source={require("../assets/logos/iiitr.png")} style={styles.Logo1}/>
-                        <Image source={require("../assets/logos/hog.png")} style={styles.Logo2}/>
-                    </TouchableOpacity>
-                </ImageBackground>
+            <Image source={require("../assets/logos/iiitr.png")} style={styles.Logo}/>
+            <View style={styles.Button}>
+            <Button title="Attendence" onPress = {() => this.props.navigation.navigate('scanner',{})}></Button>
+            </View>
+            <View style={styles.Button}>
+            <Button title="Manage" onPress = {() => this.props.navigation.navigate('manage',{})}></Button>
+            </View>
             </View>
         );
     }
