@@ -1,6 +1,5 @@
 import React from "react";
-import { Text, View, ImageBackground} from 'react-native';
-import { Card, Icon, Button} from 'react-native-elements'
+import { Text, View, Button, ImageBackground} from 'react-native';
 import styles from "../screens/styles/manage.js";
 
 function changeState(i,ref)
@@ -12,12 +11,17 @@ function changeState(i,ref)
     if(ref.state.y1 === 0)ref.setState({y1: 1});
     else ref.setState({y1: 0});
   }
-  else
+  else if(i == 0)
   {
     if(ref.state.x2 === 0)ref.setState({x2: 1});
     else ref.setState({x2: 0});
     if(ref.state.y2 === 0)ref.setState({y2: 1});
     else ref.setState({y2: 0});
+  }
+  else
+  {
+    ref.setState({flag: true});
+    ref.setState({message: "Generation in progress"});
   }
 }
 
@@ -28,23 +32,45 @@ function makecard(i,ref)
     const textlabels =  ["Registration Closed", "Registration Open"];
     const buttonlabels =  ["Open", "End"];
     return (
-      <Card containerStyle={styles.Card}>
-         <Card.Title>Registration</Card.Title>
-         <Text style={styles.CardText}>{textlabels[ref.state.x1]}</Text>
-         <Button title= {buttonlabels[ref.state.y1]} type="outline" onPress = { async () => changeState(i,ref)}/>
-      </Card>
+      <View style={styles.BoxU}>
+        <View style={styles.Box}>
+        <Text style={styles.Text}>Registration</Text>
+        <Text style={styles.TextI}>{textlabels[ref.state.x1]}</Text>
+        <View style={styles.Button}>
+        <Button title= {buttonlabels[ref.state.y1]} onPress={async () => changeState(i,ref)}></Button>
+        </View>
+        </View>
+      </View>
     );
   }
-  else
+  else if( i == 0)
   {
     const textlabels =  ["Event Started", " Event Ended"];
     const buttonlabels =  ["End", "Start"];
     return (
-      <Card containerStyle={styles.Card}>
-        <Card.Title>Event</Card.Title>
-        <Text style={styles.CardText}>{textlabels[ref.state.x2]}</Text>
-        <Button title= {buttonlabels[ref.state.y2]} type="outline" onPress = { async () => changeState(i,ref)}/>
-      </Card>
+      <View style={styles.BoxU}>
+        <View style={styles.Box}>
+        <Text style={styles.Text}>Event</Text>
+        <Text style={styles.TextI}>{textlabels[ref.state.x2]}</Text>
+        <View style={styles.Button}>
+        <Button title= {buttonlabels[ref.state.y2]} onPress={async () => changeState(i,ref)}></Button>
+        </View>
+        </View>
+      </View>
+    );
+  }
+  else
+  {
+    return (
+      <View style={styles.BoxU}>
+        <View style={styles.Box}>
+        <Text style={styles.Text}>Certificate</Text>
+        <Text style={styles.TextI}>{ref.state.message}</Text>
+        <View style={styles.Button}>
+        <Button disabled={ref.state.flag} title= "Start" onPress={async () => changeState(i,ref)}></Button>
+        </View>
+        </View>
+      </View>
     );
   }
 }
@@ -58,6 +84,8 @@ class manage extends React.Component
           y1: 0,
           x2: 0,
           y2: 0,
+          flag: false,
+          message: "Generate Certificate"
         }
     }
     render() {
@@ -65,6 +93,7 @@ class manage extends React.Component
             <View style={styles.Container}>
               {makecard(0,this)}
               {makecard(1,this)}
+              {makecard(2,this)}
             </View>
         );
     }

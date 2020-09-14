@@ -6,38 +6,62 @@ const styles = StyleSheet.create({
   {
     flex: 1,
     flexDirection: 'column',
-    padding:  hp('8%'),
+    padding:  hp('4%'),
     height: hp('100%'),
     width: wp('100%'),
     alignItems: 'center',
   },
+  Box:
+  {
+    borderWidth: 5,
+    borderRadius: 20,
+    borderColor: '#000000',
+    width:  wp('70%'),
+    height: hp('9%'),
+    margin: hp('0.5%'),
+    backgroundColor: "#b1eb34"
+  },
+  BoxU:
+  {
+    borderWidth: 5,
+    borderRadius: 20,
+    borderColor: '#000000',
+    width:  wp('70%'),
+    height: hp('5%'),
+    margin: hp('0.5%'),
+    backgroundColor: "#36c9d1"
+  },
   Button:
   {
-    margin: hp('30%'),
+    margin: hp('42%'),
     width:  wp('90%'),
     justifyContent: 'center',
   },
   Photo:
   {
+    borderWidth: 10,
+    borderColor: '#000000',
     height: hp('30%'),
-    width: wp('50%'),
+    width: wp('45%'),
     alignItems: 'center',
     resizeMode:'stretch'
   },
   Text:
   {
-    padding: wp('0.8%'),
     textAlign: 'center',
-    color: "#0080ff",
+    color: "black",
     fontWeight: "bold",
-    fontSize: 20
+    fontSize: 14
   },
   TextI:
   {
-    padding: wp('1%'),
     textAlign: 'center',
-    color: "#f76868",
-    fontSize: 18
+    color: "red",
+    fontSize: 15
+  },
+  Gap:
+  {
+      marginBottom: hp('11%'),
   }
 });
 

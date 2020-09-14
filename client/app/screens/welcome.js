@@ -1,5 +1,5 @@
 import React from "react";
-import {View, TouchableOpacity, Image, Button} from 'react-native';
+import {View, Image, Button} from 'react-native';
 import styles from "../screens/styles/welcome.js";
 
 class welcome extends React.Component

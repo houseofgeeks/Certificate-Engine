@@ -3,6 +3,12 @@ import { Text, View, Image, ImageBackground, Button} from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import styles from "../screens/styles/scanner.js";
 
+async function change(ref)
+{
+  await ref.setState({flag: true});
+  await ref.setState({title: "Not Ready"});
+}
+
 class scanner extends React.Component {
   constructor(props) {
     super(props);
@@ -41,8 +47,7 @@ class scanner extends React.Component {
       </RNCamera>
       <View style={styles.Button}>
       <Button title={this.state.title} disabled= {this.state.flag} onPress= {() => {
-        this.setState({flag: true});
-        this.setState({title: "Not Ready"});
+        change(this);
         this.props.navigation.navigate('details',{data: this.state.data});
       }}></Button>
       </View>

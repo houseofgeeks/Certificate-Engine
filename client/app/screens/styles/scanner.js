@@ -12,13 +12,14 @@ const styles = StyleSheet.create({
   },
   Camera:
   {
-    height: hp('90%'),
+    height: hp('89%'),
     width:  wp('100%'),
   },
   Button:
   {
-    margin: hp('1.25%'),
     width:  wp('100%'),
+    marginTop: hp('1.0%'),
+    marginBottom: hp('1.0%'),
     justifyContent: 'center',
   }
 });
