@@ -12,10 +12,12 @@ async function change(ref)
 class scanner extends React.Component {
   constructor(props) {
     super(props);
+    const { eventName } = this.props.route.params;
     this.state = {
       flag: true,
       title: "Not Ready",
-      data: ""
+      data: "",
+      eventName: eventName
     };
   }
 
@@ -34,6 +36,7 @@ class scanner extends React.Component {
     };
 
   render() {
+    console.log(this.state.eventName);
     return (
       <View style={styles.Container}>
       <RNCamera
@@ -48,7 +51,7 @@ class scanner extends React.Component {
       <View style={styles.Button}>
       <Button title={this.state.title} disabled= {this.state.flag} onPress= {() => {
         change(this);
-        this.props.navigation.navigate('details',{data: this.state.data});
+        this.props.navigation.navigate('details',{data: this.state.data, eventName:this.state.eventName});
       }}></Button>
       </View>
       </View>

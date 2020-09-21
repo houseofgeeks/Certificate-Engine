@@ -19,7 +19,14 @@ const styles = StyleSheet.create({
     {
       margin: wp('2%'),
       justifyContent: 'center',
-    }
+    },
+    Input: {
+      margin: wp('2%'),
+      height: hp('5%'),
+      borderColor: '#05ff93',
+      borderWidth: wp('1%'),
+      textAlign: 'left'
+   },
 });
 
 export default styles;

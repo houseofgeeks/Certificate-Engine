@@ -79,16 +79,19 @@ class manage extends React.Component
 {
     constructor(props){
         super(props);
+        const { eventName } = this.props.route.params;
         this.state = {
           x1: 0,
           y1: 0,
           x2: 0,
           y2: 0,
           flag: false,
-          message: "Generate Certificate"
+          message: "Generate Certificate",
+          eventName: eventName
         }
     }
     render() {
+        console.log(this.state.eventName);
         return (
             <View style={styles.Container}>
               {makecard(0,this)}

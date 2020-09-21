@@ -7,6 +7,7 @@ class details extends React.Component
     constructor(props){
         super(props);
         const { data } = this.props.route.params;
+        const { eventName } = this.props.route.params;
         this.state = {
           url: "https://img.icons8.com/clouds/2x/no-image.png",
           name: data,
@@ -14,11 +15,13 @@ class details extends React.Component
           year: data,
           branch: data,
           flag: false,
-          status: "Mark Present"
+          status: "Mark Present",
+          eventName: eventName
         }
     }
 
     render() {
+        console.log(this.state.eventName);
         return (
           <View style={styles.Container}>
           <Image source={{uri: this.state.url}} style={styles.Photo}/>
