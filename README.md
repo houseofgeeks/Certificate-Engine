@@ -1,8 +1,8 @@
 # cehg
 Certificate Engine for HOG
 
-##Web-App
+## Web-App
 Uses React-native
 
-##Android-App
+## Android-App
 Uses ReacJS
