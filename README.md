@@ -18,7 +18,7 @@ Please read [here](https://github.com/houseofgeeks/cehg/blob/master/client/web-a
 
 ## Android-App
 
-Uses ReacJS
+Uses ReactJS
 
 ## Contributing Guide
 
