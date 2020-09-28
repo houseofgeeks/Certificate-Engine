@@ -10,8 +10,6 @@ Description: <provide a description> The title should be short and relevant.
 
 - [] I've followed the Contributing guidelines provided in the repository.
 - [] I've made the changes which were demanded in the related issue.
-- [] I've tested my code on a Chromium based browser.
-- [] I've tested my code on Mozilla Firefox.
 - [] My code gave a clean console on debugging. (no warnings/errors)
 
 #### Acknowledgement/Screenshot
