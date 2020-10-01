@@ -16,6 +16,10 @@
   background-color: #7f53ac;
   background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
 }
+.login-button:hover {
+  background-color: #7f53ac;
+  background-image: linear-gradient(315deg, #8137cc 0%, #284df1 84%);
+}
 
 .login-page .card {
   padding: 30px 10px 70px 10px;
