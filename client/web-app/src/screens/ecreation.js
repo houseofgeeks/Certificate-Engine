@@ -89,71 +89,123 @@ class ECreation extends React.Component
 
     render() {
         return (
-          <span className="container py-5">
-          <Form className="form border border-success bg-dark">
-
-            <Form.Group>
-            <Form.Row>
-            <Form.Label className="text-success">Title</Form.Label>
-            </Form.Row>
-            <Form.Row>
-            <Form.Control id = "1" value={this.state.title} onChange={this.handleChange} type="text" placeholder="Enter title" />
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Form.Label className="text-success">Start Date</Form.Label>
-            <Form.Control id = "2" value={this.state.startDate} onChange={this.handleChange} type="date"/>
-            </Form.Row>
-            </Form.Group>
-            <Form.Group>
-            <Form.Row>
-            <Form.Label className="text-success">End Date</Form.Label>
-            <Form.Control id = "3" value={this.state.endDate} onChange={this.handleChange} type="date"/>
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Form.Label className="text-success">Contact Name</Form.Label>
-            </Form.Row>
-            <Form.Row>
-            <Form.Control id = "4" value={this.state.contactName} onChange={this.handleChange} type="text" placeholder="Enter name" />
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Form.Label className="text-success">Contact Email</Form.Label>
-            </Form.Row>
-            <Form.Row>
-            <Form.Control id = "5" value={this.state.contactEmail} onChange={this.handleChange} type="text" placeholder="Enter email" />
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Form.Label className="text-success">Contact Number</Form.Label>
-            </Form.Row>
-            <Form.Row>
-            <Form.Control id = "6" value={this.state.contactNumber} onChange={this.handleChange} type="text" placeholder="Enter phone" />
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Button variant="success" onClick={this.handleSubmit}>Create</Button>
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Button variant="info" onClick={this.handleBack}>Dashboard</Button>
-            </Form.Row>
-            </Form.Group>
-          </Form>
-          </span>
+          <div className="container-fluid event-creation-page">
+            <div className="row justify-content-center">
+              <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
+                <article className="card-body ">
+                  <h2 className="font-weight-normal text-center">
+                    Create Form
+                  </h2>
+                  <hr></hr>
+                  <Form>
+                    {" "}
+                    <Form.Group>
+                      <Form.Row>
+                        <Form.Label className="input-label">Title</Form.Label>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Control
+                          id="1"
+                          value={this.state.title}
+                          onChange={this.handleChange}
+                          type="text"
+                          placeholder="Enter title"
+                        />
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Form.Label className="input-label">
+                          Start Date
+                        </Form.Label>
+                        <Form.Control
+                          id="2"
+                          value={this.state.startDate}
+                          onChange={this.handleChange}
+                          type="date"
+                        />
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Form.Label className="input-label">
+                          End Date
+                        </Form.Label>
+                        <Form.Control
+                          id="3"
+                          value={this.state.endDate}
+                          onChange={this.handleChange}
+                          type="date"
+                        />
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Form.Label className="input-label">
+                          Contact Name
+                        </Form.Label>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Control
+                          id="4"
+                          value={this.state.contactName}
+                          onChange={this.handleChange}
+                          type="text"
+                          placeholder="Enter name"
+                        />
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Form.Label className="input-label">
+                          Contact Email
+                        </Form.Label>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Control
+                          id="5"
+                          value={this.state.contactEmail}
+                          onChange={this.handleChange}
+                          type="text"
+                          placeholder="Enter email"
+                        />
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Form.Label className="input-label">
+                          Contact Number
+                        </Form.Label>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Control
+                          id="6"
+                          value={this.state.contactNumber}
+                          onChange={this.handleChange}
+                          type="text"
+                          placeholder="Enter phone"
+                        />
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Button className="button" onClick={this.handleSubmit}>
+                          Create
+                        </Button>
+                      </Form.Row>
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Row>
+                        <Button className="button" onClick={this.handleBack}>
+                          Dashboard
+                        </Button>
+                      </Form.Row>
+                    </Form.Group>
+                  </Form>
+                </article>
+              </div>
+            </div>
+          </div>
         );
     }
 }
