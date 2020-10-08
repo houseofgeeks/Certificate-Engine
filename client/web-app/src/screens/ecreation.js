@@ -94,7 +94,7 @@ class ECreation extends React.Component
               <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
                 <article className="card-body ">
                   <h2 className="font-weight-normal text-center">
-                    Create Form
+                    Create Event
                   </h2>
                   <hr></hr>
                   <Form>
