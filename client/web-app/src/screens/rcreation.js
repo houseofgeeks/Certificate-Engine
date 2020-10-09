@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Col} from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line
 import axios from 'axios';
@@ -13,56 +13,71 @@ var eventName;
 var formName;
 var info=[];
 
-var ename = (ref) =>
-(
+var ename = (ref) => (
   <Form.Group>
-  <Form.Row>
-  <Form.Label className="text-success">Event Name</Form.Label>
-  </Form.Row>
-  <Form.Row>
-  <Form.Control id="eventName" value={eventName} onChange={ref.handleOptions} type="text" placeholder="Enter event name"/>
-  </Form.Row>
+    <Form.Row>
+      <Form.Label className="input-label">Event Name</Form.Label>
+    </Form.Row>
+    <Form.Row>
+      <Form.Control
+        id="eventName"
+        value={eventName}
+        onChange={ref.handleOptions}
+        type="text"
+        placeholder="Enter event name"
+      />
+    </Form.Row>
   </Form.Group>
-)
+);
 
-var fname = (ref) =>
-(
+var fname = (ref) => (
   <Form.Group>
-  <Form.Row>
-  <Form.Label className="text-success">Form Name</Form.Label>
-  </Form.Row>
-  <Form.Row>
-  <Form.Control id="formName" value={formName} onChange={ref.handleOptions} type="text" placeholder="Enter form name"/>
-  </Form.Row>
+    <Form.Row>
+      <Form.Label className="input-label">Form Name</Form.Label>
+    </Form.Row>
+    <Form.Row>
+      <Form.Control
+        id="formName"
+        value={formName}
+        onChange={ref.handleOptions}
+        type="text"
+        placeholder="Enter form name"
+      />
+    </Form.Row>
   </Form.Group>
-)
+);
 
-var options = (ref, i) =>
-(
+var options = (ref, i) => (
   <Form.Group>
-  <Form.Row>
-  <Col>
-  <Form.Control id={i} className="bg-dark text-white" as="select" onChange={ref.handleOptions}>
-  <option>Choose</option>
-  <option>Doc</option>
-  <option>LongPara</option>
-  <option>ShortPara</option>
-  </Form.Control>
-  </Col>
-  <Col>
-  <Button id={i} variant="danger" onClick={ref.handleOptions}>Delete</Button>
-  </Col>
-  </Form.Row>
-  <Form.Group>
+    <Form.Row>
+      <Form.Control
+        id={i}
+        as="select"
+        className="col-12 col-md-5 mx-auto"
+        onChange={ref.handleOptions}
+      >
+        <option>Choose</option>
+        <option>Doc</option>
+        <option>LongPara</option>
+        <option>ShortPara</option>
+      </Form.Control>
 
+      <Button
+        id={i}
+        className="button col-12 col-md-5 mx-auto"
+        onClick={ref.handleOptions}
+      >
+        Delete
+      </Button>
+    </Form.Row>
+    <Form.Group></Form.Group>
+    <Form.Row>
+      <Button className="button" onClick={ref.handleSubmit}>
+        Submit
+      </Button>
+    </Form.Row>
   </Form.Group>
-  <Form.Row>
-  <Col>
-  <Button variant="success" onClick={ref.handleSubmit}>Submit</Button>
-  </Col>
-  </Form.Row>
-  </Form.Group>
-)
+);
 
 var classref;
 
@@ -183,13 +198,19 @@ class RCreation extends React.Component
     }
 
     render() {
-        return (
-          <span className="container py-5">
-          <Form className="form border border-success bg-dark">
-          {this.state.elements}
-          </Form>
-          </span>
-        );
+      return (
+        <div className="container-fluid form-creation-page">
+          <div className="row justify-content-center">
+            <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
+              <article className="card-body ">
+                <h2 className="font-weight-normal text-center">Create Form</h2>
+                <hr></hr>
+                <Form>{this.state.elements}</Form>
+              </article>
+            </div>
+          </div>
+        </div>
+      );
     }
 }
 
