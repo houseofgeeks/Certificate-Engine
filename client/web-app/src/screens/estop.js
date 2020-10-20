@@ -55,29 +55,39 @@ class EStop extends React.Component
 
     render() {
         return (
-          <span className="container">
-          <Form className="form border border-success bg-dark">
-            <Form.Group controlId="formBasicEmail">
-            <Form.Row>
-            <Form.Label className="text-success">Event Name</Form.Label>
-            </Form.Row>
-            <Form.Row>
-            <Form.Control value={this.state.name} onChange={this.handleChange} type="text" placeholder="Type exactly as it is" />
-            </Form.Row>
-            </Form.Group>
-            <Form.Group>
-            <Form.Row>
-            <Button variant="success" onClick={this.handleSubmit}>Stop</Button>
-            </Form.Row>
-            </Form.Group>
-
-            <Form.Group>
-            <Form.Row>
-            <Button variant="info" onClick={this.handleBack}>Dashboard</Button>
-            </Form.Row>
-            </Form.Group>
-          </Form>
-          </span>
+           <div className="container-fluid event-creation-page">
+           <div className="row justify-content-center">
+             <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
+               <article className="card-body ">
+                 <h2 className="font-weight-normal text-center">
+                   Stop Event
+                 </h2>
+                 <hr></hr>
+                <Form>
+                   {" "}
+                   <Form.Group controlId="formBasicEmail">
+                     <Form.Row>
+                       <Form.Label className="input-label">Event Name</Form.Label>
+                     </Form.Row>
+                     <Form.Row>
+                       <Form.Control value={this.state.name} onChange={this.handleChange} type="text" placeholder="Type exactly as it is" />
+                     </Form.Row>
+                   </Form.Group>
+                   <Form.Group>
+                     <Form.Row>
+                        <Button className="button" onClick={this.handleSubmit}>Stop</Button>
+                     </Form.Row>
+                   </Form.Group>
+                   <Form.Group>
+                      <Form.Row>
+                         <Button className="button" onClick={this.handleBack}>Dashboard</Button>
+                      </Form.Row>
+                   </Form.Group>
+                </Form>
+               </article>
+             </div>
+           </div>
+         </div>
         );
     }
 }

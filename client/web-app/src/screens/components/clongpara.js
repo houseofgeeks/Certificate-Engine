@@ -30,7 +30,7 @@ export default class LongPara extends React.Component
         return (
           <Form.Group>
           <Form.Row>
-          <Form.Label className="text-success">{this.state.label}</Form.Label>
+          <Form.Label className="input-label">{this.state.label}</Form.Label>
           </Form.Row>
           <Form.Row>
           <Form.Control value={this.state.text} onChange={this.handleChange} type="text" placeholder={this.state.hint}/>
