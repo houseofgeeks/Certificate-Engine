@@ -35,12 +35,12 @@ export default class Doc extends React.Component
         });
       }
     }
-
+ 
     render() {
         return (
           <Form.Group>
           <Form.Row>
-          <Form.Label className="text-success">Doc</Form.Label>
+          <Form.Label className="input-label">Doc</Form.Label>
           </Form.Row>
           <Form.Row>
           <Form.Control id="label" value={this.state.label} onChange={this.handleChange} type="text" placeholder="Set Label"/>

@@ -40,7 +40,7 @@ export default class ShortPara extends React.Component
         return (
           <Form.Group>
           <Form.Row>
-          <Form.Label className="text-success">ShortPara</Form.Label>
+          <Form.Label className="input-label">ShortPara</Form.Label>
           </Form.Row>
           <Form.Row>
           <Form.Control id="label" value={this.state.label} onChange={this.handleChange} type="text" placeholder="Set Label"/>

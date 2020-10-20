@@ -31,7 +31,7 @@ export default class Doc extends React.Component
         return (
           <Form.Group>
           <Form.Row>
-          <Form.Label className="text-success">{this.state.label}</Form.Label>
+          <Form.Label className="input-label">{this.state.label}</Form.Label>
           </Form.Row>
           <Form.Row>
           <Form.File

@@ -3,8 +3,7 @@ import { Form, Col, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line
 import axios from 'axios';
-import './styles/rcreation.css';
-
+import './styles/rform.css';
 import ShortPara from './components/cshortpara.js';
 import LongPara from './components/clongpara.js';
 import Doc from './components/cdoc.js';
@@ -19,11 +18,11 @@ var options = (ref) =>
   <Form.Group>
   <Form.Row>
   <Col>
-  <Button variant="success" onClick={ref.handleSubmit}>Submit</Button>
+  <Button className="button" onClick={ref.handleSubmit}>Submit</Button>
   </Col>
   </Form.Row>
   </Form.Group>
-)
+) 
 
 
 class RForm extends React.Component
@@ -80,19 +79,19 @@ class RForm extends React.Component
           console.log(info[obj]);
           if(info[obj].type === "eventName")
           {
-            classref.state.elements.splice(classref.state.elements.length - 1,0, <center><h1 className="text-light">{info[obj].eventName}</h1></center>);
+            classref.state.elements.splice(classref.state.elements.length - 1,0, <center><h1 className="text-dark">{info[obj].eventName}</h1></center>);
             classref.setState({elements: classref.state.elements});
           }
           else if(info[obj].type === "contact")
           {
-            classref.state.elements.splice(classref.state.elements.length - 1,0, <span><h6 className="text-light"><span className="text-info">Contact Name:</span>{info[obj].name}</h6></span>);
-            classref.state.elements.splice(classref.state.elements.length - 1,0, <span><h6 className="text-light"><span className="text-info">Contact Email:</span>{info[obj].email}</h6></span>);
-            classref.state.elements.splice(classref.state.elements.length - 1,0, <span><h6 className="text-light"><span className="text-info">Contact Number:</span>{info[obj].phone}</h6><hr className="bg-success"></hr></span>);
+            classref.state.elements.splice(classref.state.elements.length - 1,0, <span><h6 className="text-dark move-to-center"><span className="text-info">Contact Name : </span >{info[obj].name}</h6></span>);
+            classref.state.elements.splice(classref.state.elements.length - 1,0, <span><h6 className="text-dark move-to-center"><span className="text-info">Contact Email : </span>{info[obj].email}</h6></span>);
+            classref.state.elements.splice(classref.state.elements.length - 1,0, <span><h6 className="text-dark move-to-center"><span className="text-info">Contact Number : </span>{info[obj].phone}</h6><hr className="bg-success"></hr></span>);
             classref.setState({elements: classref.state.elements});
           }
           else if(info[obj].type === "formName")
           {
-            classref.state.elements.splice(classref.state.elements.length - 1,0, <center><h4 className="text-white">{info[obj].formName}</h4><hr className="bg-success"></hr></center>);
+            classref.state.elements.splice(classref.state.elements.length - 1,0, <center><h4 className="text-dark">{info[obj].formName}</h4><hr className="bg-success"></hr></center>);
             classref.setState({elements: classref.state.elements});
           }
           else if(info[obj].type === "Doc")
@@ -146,11 +145,17 @@ class RForm extends React.Component
     }
     render() {
       return (
-        <span className="container py-5 align-items-center">
-        <Form className="form border border-success bg-dark align-items-center">
-        {this.state.elements}
-        </Form>
-        </span>
+         <div className="container-fluid form-render-page">
+         <div className="row justify-content-center">
+           <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
+             <article className="card-body ">
+               <Form>
+               {this.state.elements}
+               </Form>
+             </article>
+           </div>
+         </div>
+       </div>
       );
     }
 }
