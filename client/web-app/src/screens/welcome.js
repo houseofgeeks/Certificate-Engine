@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Image } from 'react-bootstrap';
 import './styles/welcome.css';
+import logo from "../assets/logo.svg";
 
 class Welcome extends React.Component
 {
@@ -19,11 +19,36 @@ class Welcome extends React.Component
     render() {
         console.log(this.props.history);
         return (
-          <Container className="container">
-          <Row>
-          <Image src={require('../assets/iiitr.png')} onClick={() => this.handleClick()} rounded className="logo" />
-          </Row>
-          </Container>
+         <div className="container-fluid welcome"> 
+           <div className="row welcome-back">
+              <nav className="navbar navbar-expand-lg  navbar-dark bg-transparent container-fluid">
+                 <a className="navbar-brand" href="# "><img src={logo} width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy"></img>
+                     <span className="brand-heading"> &nbsp;HG Certificate Engine</span>
+                 </a>
+                 <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                     <span className="navbar-toggler-icon"></span>
+                 </button>
+
+                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ml-auto">
+                       <li>
+                         <button className="btn btn-sm btn-outline-secondary log-button text-white" onClick={() => this.handleClick()} type="button">Login</button>
+                       </li>
+                    </ul>
+                 </div>
+             </nav>
+             <div className="col-12 col-md-7  heading text-white">
+               <h3 className="head1">House of Geeks</h3><br></br>
+               <h1 className="head2">Certificate Engine</h1>
+             </div>
+             <div className="col-12 col-md-5 ">
+               <img className="logo" src={logo} alt="logo"></img>
+                         </div>
+             <div className="text-white col-12 text-center">
+               <p className="intro-line">Create and Share Forms and Certificate on the way !!</p>
+             </div>
+           </div>
+         </div>
         );
     }
 }
