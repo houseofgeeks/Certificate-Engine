@@ -9,7 +9,11 @@ import ECreation from './screens/ecreation.js';
 import RForm from './screens/rform.js';
 import EStop from './screens/estop.js';
 import RStop from './screens/rstop.js';
-import Generate from './screens/generate.js';
+import RView from './screens/rview.js';
+import EView from './screens/eview.js';
+import EPreview from './screens/epreview.js';
+import AGenerate from './screens/agenerate.js';
+import CGenerate from './screens/cgenerate.js';
 
 function App()
 {
@@ -24,7 +28,11 @@ function App()
       <Route path="/rform" component={RForm} />
       <Route path="/estop" component={EStop} />
       <Route path="/rstop" component={RStop} />
-      <Route path="/generate" component={Generate} />
+      <Route path="/rview" component={RView} />
+      <Route path="/eview" component={EView} />
+      <Route path="/epreview" component={EPreview} />
+      <Route path="/agenerate" component={AGenerate} />
+      <Route path="/cgenerate" component={CGenerate} />
     </Switch>
     </Router>
   );

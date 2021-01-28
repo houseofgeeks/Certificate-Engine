@@ -27,26 +27,23 @@ class RStop extends React.Component {
   }
 
   handleSubmit(event) {
-    //console.log(this.state);
-
-    /*const data = {
-        name: this.state.name,
-        form: this.state.form
-      }
-
-      axios.post("",{data})
+    axios.post("http://localhost:3001/stopform", { 
+      'etitle': this.state.name,
+      'ftitle': this.state.form
+     })
       .then(res => {
-        this.setState({valid: res.valid});
-      });*/
-
-    if (this.state.valid === true) {
-      alert("Form Stopped Succesfully");
-      this.props.history.push("/dashboard");
-    } else {
-      alert("Could not stop form");
-      this.props.history.push("/rstop");
-    }
-    console.log(this.state);
+        if (res.data['success'] === "True") {
+          this.setState({ valid: res.data['success'] });
+          if (this.state.valid === "True") {
+            alert("Event Stopped Succesfully")
+            this.props.history.push("/dashboard");
+          }
+          else {
+            alert("Error in Stopping Event.");
+            this.props.history.push("/estop");
+          }
+        }
+      });
     event.preventDefault();
   }
 
