@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Welcome from './screens/welcome.js';
+import CWelcome from './screens/cwelcome.js';
 import Login from './screens/login.js';
 import Dashboard from './screens/dashboard.js';
 import RCreation from './screens/rcreation.js';
@@ -14,6 +15,7 @@ import EView from './screens/eview.js';
 import EPreview from './screens/epreview.js';
 import AGenerate from './screens/agenerate.js';
 import CGenerate from './screens/cgenerate.js';
+import Thanks from './screens/thanks.js';
 
 function App()
 {
@@ -21,7 +23,9 @@ function App()
     <Router>
     <Switch>
       <Route exact path="/" component={Welcome} />
+      <Route exact path="/form" component={CWelcome} />
       <Route path="/login" component={Login} />
+      <Route path="/thanks" component={Thanks} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/rcreation" component={RCreation} />
       <Route path="/ecreation" component={ECreation} />

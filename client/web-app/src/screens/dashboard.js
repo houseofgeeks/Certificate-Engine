@@ -63,7 +63,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="container-fluid dashboard-page py-5 align-items-center">
-        <h1 className="text-center">Dashboard</h1>
+        <h1 className="text-center text-white">Dashboard</h1>
         <hr></hr>
         <div className="row mt-5 justify-content-center">
           <div className="col-12 col-lg-4 col-md-6 box">

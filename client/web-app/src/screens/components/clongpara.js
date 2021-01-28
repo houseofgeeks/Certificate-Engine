@@ -32,8 +32,9 @@ export default class LongPara extends React.Component
           <Form.Row>
           <Form.Label className="input-label">{this.state.label}</Form.Label>
           </Form.Row>
-          <Form.Row>
-          <Form.Control value={this.state.text} onChange={this.handleChange} type="text" placeholder={this.state.hint}/>
+          <Form.Row className="pl-4 pr-4">
+              <Form.Control value={this.state.text} onChange={this.handleChange} 
+              as="textarea" rows={3} type="text" placeholder={this.state.hint}/>
           </Form.Row>
           </Form.Group>
         );
