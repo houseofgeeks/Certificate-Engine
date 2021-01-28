@@ -51,5 +51,28 @@ exports.getForm = (req, res, next) => {
 };
 
 exports.submitForm = (req, res, next) => {
-    console.log(req.body);
+    //console.log(req.files);
+
+    var etitle = req.body.ename;
+    var ftitle = req.body.fname; 
+
+    delete req['undefined'];
+    delete req['ename'];
+    delete req['fname'];
+
+    var Model = require('../model/data');
+    var model = new Model({
+        etitle: etitle,
+        ftitle: ftitle,
+        data: JSON.stringify(req.body),
+        file: req.files
+    });
+    model.save()
+        .then(doc => {
+            res.json({ success: 'True', data: doc });
+        })
+        .catch(err => {
+            res.json({ success: 'False', data: err });
+
+        });
 };

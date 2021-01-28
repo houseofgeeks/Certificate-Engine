@@ -10,8 +10,9 @@ var app = express();
 
 var multer = require('multer');
 var upload = multer();
-app.use(upload.array());
+app.use(upload.array('files', 12));
 app.use(express.static('public'));
+
 
 var cors = require('cors');
 app.use(cors({ origin: true }));
@@ -36,7 +37,7 @@ app.post('/getevent', event.getEvent);
 app.post('/createform', form.createForm);
 app.post('/stopform', form.stopForm);
 app.post('/getform', form.getForm);
-app.post('/submitform', form.submitForm);
+app.post('/submitform',form.submitForm);
 
 app.listen(process.env.PORT || 3001,
     () => console.log("Server is running..."));

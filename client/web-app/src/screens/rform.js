@@ -32,8 +32,9 @@ class RForm extends React.Component
         this.state =
         {
           valid: true,
-          source: "rcreation",
           elements: [options(this)],
+          fname: "",
+          ename: "",
           data: [{}]
         }
         classref=this
@@ -48,12 +49,13 @@ class RForm extends React.Component
         //console.log(classref.state.data);
       }
 
-      //console.log(classref.props.location.state.data.data.edata);
-
       info = JSON.parse(classref.props.location.state.data.data.fdata);
+      classref.setState({ 'ename': info[0].eventName});
+      classref.setState({ 'fname': info[1].formName });
       var con = JSON.parse(classref.props.location.state.data.data.edata);
       contact = { type: "contact", name: con.contactName, email: con.contactEmail, phone: con.contactNumber }
       info.splice(2, 0, contact);
+
 
       if(info.length >= 4)
       {
@@ -111,7 +113,8 @@ class RForm extends React.Component
         {
           if(i.type === "Doc")
           {
-            data.append(i.label, 'Not supported');
+            console.log(i.file);
+            data.append('files', i.file);
           }
           else
           {
@@ -120,23 +123,23 @@ class RForm extends React.Component
         }
       }
 
-      console.log(data);
+      data.append('ename', classref.state.ename);
+      data.append('fname', classref.state.fname);
 
       axios.post("http://localhost:3001/submitform",data)
       .then(res => {
+        console.log(res);
         //classref.setState({valid: res.valid});
+        if (res.data['success'] === "False") {
+          alert("Could not upload data");
+          classref.props.history.push("/rform");
+        }
+        else {
+          alert("Data uploaded successfully");
+          classref.props.history.push("/thanks");
+        }
       });
 
-      if(classref.state.valid === false)
-      {
-        alert("Could not upload data");
-        classref.props.history.push("/rform");
-      }
-      else
-      {
-        alert("Data uploaded successfully");
-        classref.props.history.push("/rform");
-      }
       event.preventDefault();
     }
     render() {
