@@ -10,7 +10,7 @@ import Doc from './components/cdoc.js';
 
 var classref;
 
-var contact = {type:"contact", name:"Prithwiraj Samanta",email:"prskid1000@gmail.com", phone:"6204570243"}
+var contact = {};
 var info=[];
 
 var options = (ref) =>
@@ -48,29 +48,12 @@ class RForm extends React.Component
         //console.log(classref.state.data);
       }
 
-      if(classref.state.source === "rcreation")
-      {
-        info = classref.props.location.state.info;
-        info.splice(2,0,contact);
-        console.log(info.info);
-      }
-      else
-      {
-        /*const data = {
-        }
+      //console.log(classref.props.location.state.data.data.edata);
 
-        axios.post("",{data})
-        .then(res => {
-          this.setState({info: res.info});
-          this.setState({valid: res.valid});
-        });*/
-
-        if(this.state.valid === false)
-        {
-          alert("Could not load the form");
-          this.props.history.push("/rform");
-        }
-      }
+      info = JSON.parse(classref.props.location.state.data.data.fdata);
+      var con = JSON.parse(classref.props.location.state.data.data.edata);
+      contact = { type: "contact", name: con.contactName, email: con.contactEmail, phone: con.contactNumber }
+      info.splice(2, 0, contact);
 
       if(info.length >= 4)
       {
@@ -120,16 +103,29 @@ class RForm extends React.Component
 
     handleSubmit(event) {
 
-      console.log(classref.state.data);
+      var data = new FormData();
 
-      /*const data = {
-        data:classref.state.data
+      for (var i of classref.state.data)
+      {
+        if(i != undefined)
+        {
+          if(i.type === "Doc")
+          {
+            data.append(i.label, 'Not supported');
+          }
+          else
+          {
+            data.append(i.label, i.text);
+          }
+        }
       }
 
-      axios.post("",{data})
+      console.log(data);
+
+      axios.post("http://localhost:3001/submitform",data)
       .then(res => {
-        classref.setState({valid: res.valid});
-      });*/
+        //classref.setState({valid: res.valid});
+      });
 
       if(classref.state.valid === false)
       {

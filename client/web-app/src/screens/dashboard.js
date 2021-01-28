@@ -11,9 +11,12 @@ class Dashboard extends React.Component {
     };
     this.handleEventStart = this.handleEventStart.bind(this);
     this.handleEventStop = this.handleEventStop.bind(this);
+    this.handleEventView = this.handleEventView.bind(this);
     this.handleRegistrationStart = this.handleRegistrationStart.bind(this);
     this.handleRegistrationStop = this.handleRegistrationStop.bind(this);
-    this.handleGeneration = this.handleGeneration.bind(this);
+    this.handleRegistrationView = this.handleRegistrationView.bind(this);
+    this.handleAttendanceGeneration = this.handleAttendanceGeneration.bind(this);
+    this.handleCertificateGeneration = this.handleCertificateGeneration.bind(this);
   }
 
   handleEventStart(event) {
@@ -26,6 +29,12 @@ class Dashboard extends React.Component {
     this.props.history.push("/estop");
   }
 
+  handleEventView(event) {
+    console.log("Event Stopped");
+    this.props.history.push("/eview");
+  }
+
+
   handleRegistrationStart(event) {
     console.log("Registration Started");
     this.props.history.push("/rcreation");
@@ -36,9 +45,19 @@ class Dashboard extends React.Component {
     this.props.history.push("/rstop");
   }
 
-  handleGeneration(event) {
+  handleRegistrationView(event) {
+    console.log("Registration Stopped");
+    this.props.history.push("/rview");
+  }
+
+  handleAttendanceGeneration(event) {
     console.log("Generation Started");
-    this.props.history.push("/generate");
+    this.props.history.push("/agenerate");
+  }
+
+  handleCertificateGeneration(event) {
+    console.log("Generation Started");
+    this.props.history.push("/cgenerate");
   }
 
   render() {
@@ -55,6 +74,9 @@ class Dashboard extends React.Component {
               <Button className="button" onClick={this.handleEventStart}>
                 Create
               </Button>
+              <Button className="button" onClick={this.handleEventView}>
+                View
+              </Button>
               <Button className="button" onClick={this.handleEventStop}>
                 Stop
               </Button>
@@ -68,6 +90,9 @@ class Dashboard extends React.Component {
               <Button className="button" onClick={this.handleRegistrationStart}>
                 Create
               </Button>
+              <Button className="button" onClick={this.handleRegistrationView}>
+                View
+              </Button>
               <Button className="button" onClick={this.handleRegistrationStop}>
                 Stop
               </Button>
@@ -78,8 +103,11 @@ class Dashboard extends React.Component {
               <span className="card-title h2">Certificate</span>
               <hr></hr>
               <p> Start create your House of Geeks certifcate now.</p>
-              <Button className="button" onClick={this.handleGeneration}>
-                Generate
+              <Button className="button" onClick={this.handleAttendanceGeneration}>
+                Attendance Sheet
+              </Button>
+              <Button className="button" onClick={this.handleCertificateGeneration}>
+                Certificate
               </Button>
             </Jumbotron>
           </div>

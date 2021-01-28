@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/ecreation.css';
+import axios from "axios";
 
 class ECreation extends React.Component
 {
@@ -9,7 +10,7 @@ class ECreation extends React.Component
         super(props);
         this.state =
         {
-          valid : true,
+          valid : "False",
           title: "",
           startDate: "",
           endDate: "",
@@ -51,9 +52,8 @@ class ECreation extends React.Component
     }
 
     handleSubmit(event) {
-      //console.log(this.state);
 
-      /*const data = {
+      var data = {
         title: this.state.title,
         startDate: this.state.startDate,
         endDate: this.state.endDate,
@@ -62,21 +62,23 @@ class ECreation extends React.Component
         contactNumber: this.state.contactNumber,
       }
 
-      axios.post("",{data})
-      .then(res => {
-        this.setState({valid: res.valid});
-      });*/
+      data = JSON.stringify(data);
 
-      if(this.state.valid === true)
-      {
-        alert("Event Created Succesfully")
-        this.props.history.push("/dashboard");
-      }
-      else
-      {
-        alert("Could not create event");
-        this.props.history.push("/ecreation");
-      }
+      axios.post("http://localhost:3001/createevent", 
+      { 'title': this.state.title, 'data':data})
+      .then(res => {
+
+        if (res.data['success'] === "True") {
+          this.setState({ valid: res.data['success']});
+          console.log(this.state.valid);
+          alert("Event Created Succesfully")
+          this.props.history.push("/dashboard");
+        }
+        else {
+          alert("Could not create event.Try again");
+          this.props.history.push("/ecreation");
+        }
+      });
 
       event.preventDefault();
     }

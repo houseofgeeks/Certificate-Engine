@@ -11,7 +11,7 @@ class EStop extends React.Component
         super(props);
         this.state =
         {
-          valid: true,
+          valid: "False",
           name: "",
         }
         this.handleChange = this.handleChange.bind(this);
@@ -24,26 +24,23 @@ class EStop extends React.Component
     }
 
     handleSubmit(event) {
-      console.log(this.state);
 
-      /*const data = {
-        name: this.state.name
-      }
-      axios.post("",{data})
+      axios.post("http://localhost:3001/stopevent", { 'title': this.state.name})
       .then(res => {
-        this.setState({valid: res.valid});
-      });*/
+        if (res.data['success'] === "True")
+        {
+          this.setState({ valid: res.data['success'] });
+          if (this.state.valid === "True") {
+            alert("Event Stopped Succesfully")
+            this.props.history.push("/dashboard");
+          }
+          else {
+            alert("Error in Stopping Event.");
+            this.props.history.push("/estop");
+          }
+        }
+      });
 
-      if(this.state.valid === true)
-      {
-        alert("Event Stopped Succesfully")
-        this.props.history.push("/dashboard");
-      }
-      else
-      {
-        alert("Could stop event");
-        this.props.history.push("/estop");
-      }
       event.preventDefault();
     }
 

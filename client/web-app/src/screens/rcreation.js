@@ -87,7 +87,7 @@ class RCreation extends React.Component
         super(props);
         this.state =
         {
-          valid: true,
+          valid: "False",
           formName: "",
           eventName:"",
           elements: [ename(this),fname(this),options(this,1)],
@@ -172,27 +172,26 @@ class RCreation extends React.Component
           info.splice(info.length,0, {type:"ShortPara", label:classref.state.data[i].label, hint:classref.state.data[i].hint});
         }
       }
-      //console.log(info);
 
-      /*const data = {
-        info: classref.state.info
+      const data = {
+        etitle: classref.state.eventName,
+        ftitle: classref.state.formName,
+        fdata: JSON.stringify(info)
       }
 
-      axios.post("",{data})
+      axios.post("http://localhost:3001/createform",data)
       .then(res => {
-        this.setState({valid: classref.valid});
-      });*/
-
-      if(classref.state.valid === true)
-      {
-        alert("Form Created Succesfully")
-        classref.props.history.push("/rform",{info:info});
-      }
-      else
-      {
-        alert("Could not create form");
-        classref.props.history.push("/rcreation");
-      }
+        console.log(res);
+        if (res.data['success'] === "True") {
+          alert("Form Created Succesfully")
+          classref.setState({ valid: res.data['success'] });
+          classref.props.history.push("/rform", { data:res.data });
+        }
+        else {
+          alert("Could not Create Form");
+          classref.props.history.push("/rcreation");
+        }
+      });
 
       event.preventDefault();
     }

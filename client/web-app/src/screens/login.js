@@ -9,7 +9,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      valid: true,
+      valid: "False",
       email: "",
       password: "",
     };
@@ -27,24 +27,22 @@ class Login extends React.Component {
   }
 
   handleSubmit(event) {
-    //console.log(this.state);
 
-    /*const user = {
-        email: this.state.email,
+    const user = {
+        userid: this.state.email,
         password: this.state.password
       }
 
-      axios.post("",{user})
+      axios.post("http://localhost:3001/isauth",user)
       .then(res => {
-        this.setState({valid: res.valid});
-      });*/
-
-    if (this.state.valid === true) {
-      this.props.history.push("/dashboard");
-    } else {
-      alert("Invalid username or password");
-      this.props.history.push("/login");
-    }
+        if (res.data['success'] === "True") {
+          this.setState({ valid: res.data['success'] });
+          this.props.history.push("/dashboard");
+        } else {
+          alert("Invalid username or password");
+          this.props.history.push("/login");
+        }
+      });  
     event.preventDefault();
   }
 
