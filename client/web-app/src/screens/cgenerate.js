@@ -22,24 +22,19 @@ class CGenerate extends React.Component {
   }
 
   handleSubmit(event) {
-    //console.log(this.state);
-
-    /*const data = {
-        name: this.state.name,
-      }
-
-      axios.post("",{data})
+    axios.post("https://cehg.herokuapp.com/certificate", { 'title': this.state.name })
       .then(res => {
-        this.setState({valid: res.valid});
-      });*/
+        console.log(res);
 
-    if (this.state.valid === true) {
-      alert("Certificate Generation Started Succesfully");
-      this.props.history.push("/dashboard");
-    } else {
-      alert("Could Start Certificate Generation");
-      this.props.history.push("/estop");
-    }
+        if (res.data['success'] === "False") {
+          alert("Could get Data");
+          this.props.history.push("/agenerate");
+        }
+        else {
+          alert("Download will start soon");
+          this.props.history.push("/dashboard");
+        }
+      });
     event.preventDefault();
   }
 
@@ -56,7 +51,7 @@ class CGenerate extends React.Component {
           <div className="card  col-11 col-sm-10 col-md-8 col-lg-4 mx-2">
             <article className="card-body ">
               <h2 className="font-weight-normal text-center">
-                Generate Certificate
+                Download Certificate
               </h2>
               <hr></hr>
               <br></br>
@@ -84,7 +79,7 @@ class CGenerate extends React.Component {
                       className="generate-button"
                       onClick={this.handleSubmit}
                     >
-                      Generate
+                      Download
                     </Button>
                   </Form.Row>
                 </Form.Group>

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './styles/estop.css';
 
-class EView extends React.Component
+class AView extends React.Component
 {
     constructor(props){
         super(props);
@@ -25,15 +25,14 @@ class EView extends React.Component
 
     handleSubmit(event) {
 
-      axios.post("https://cehg.herokuapp.com/getevent", { 'title': this.state.name})
+      axios.post("https://cehg.herokuapp.com/getsheet", { 'title': this.state.name})
         .then(res => {
-          console.log(res);
           if (res.data['success'] === "True") {
-            this.props.history.push("/epreview", { data: res.data.data.data });
+            this.props.history.push("/aform", { data: res.data.data.title});
           }
           else {
             alert("Event not Found");
-            this.props.history.push("/eview");
+            this.props.history.push("/aview");
           }
         });
 
@@ -53,7 +52,7 @@ class EView extends React.Component
              <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
                <article className="card-body ">
                  <h2 className="font-weight-normal text-center">
-                   View Event
+                   Attendance View
                  </h2>
                  <hr></hr>
                 <Form>
@@ -85,4 +84,4 @@ class EView extends React.Component
     }
 }
 
-export default EView;
+export default AView;

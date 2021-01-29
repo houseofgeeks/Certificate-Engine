@@ -32,9 +32,10 @@ class RView extends React.Component {
       ftitle: this.state.form,
     }
 
-    axios.post("http://localhost:3001/getform", data)
+    axios.post("https://cehg.herokuapp.com/getform", data)
       .then(res => {
         if (res.data['success'] === "True") {
+          console.log(res.data);
           this.props.history.push("/rform", { data: res.data });
         }
         else {

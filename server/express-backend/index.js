@@ -27,6 +27,8 @@ app.use(cookieParser());
 const admin = require('./controller/admin');
 const event = require('./controller/event');
 const form = require('./controller/form');
+const attendance = require('./controller/attendance');
+const download = require('./controller/download');
 
 app.post('/isauth', admin.isAuth);
 
@@ -38,6 +40,16 @@ app.post('/createform', form.createForm);
 app.post('/stopform', form.stopForm);
 app.post('/getform', form.getForm);
 app.post('/submitform',form.submitForm);
+
+app.post('/marksheet', attendance.markSheet);
+app.post('/unmarksheet', attendance.unmarkSheet);
+app.post('/addsheet', attendance.addSheet);
+app.post('/getsheet', attendance.getSheet);
+
+app.post('/certificate', download.downloadCertificate);
+app.post('/sheet', download.downloadSheet);
+app.post('/data', download.downloadData);
+
 
 app.listen(process.env.PORT || 3001,
     () => console.log("Server is running..."));

@@ -3,15 +3,14 @@ import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 // eslint-disable-next-line
 import axios from "axios";
-import "./styles/rstop.css";
+import "./styles/generate.css";
 
-class RStop extends React.Component {
+class DGenerate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       valid: true,
       name: "",
-      form: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,31 +18,25 @@ class RStop extends React.Component {
   }
 
   handleChange(event) {
-    if (event.target.id === "1") {
-      this.setState({ name: event.target.value });
-    } else if (event.target.id === "2") {
-      this.setState({ form: event.target.value });
-    }
+    this.setState({ name: event.target.value });
   }
 
   handleSubmit(event) {
-    axios.post("https://cehg.herokuapp.com/stopform", { 
-      'etitle': this.state.name,
-      'ftitle': this.state.form
-     })
+
+    axios.post("https://cehg.herokuapp.com/data", { 'title': this.state.name })
       .then(res => {
-        if (res.data['success'] === "True") {
-          this.setState({ valid: res.data['success'] });
-          if (this.state.valid === "True") {
-            alert("Event Stopped Succesfully")
-            this.props.history.push("/dashboard");
-          }
-          else {
-            alert("Error in Stopping Event.");
-            this.props.history.push("/estop");
-          }
+        console.log(res);
+        
+        if (res.data['success'] === "False") {
+          alert("Could get Data");
+          this.props.history.push("/agenerate");
+        }
+        else {
+          alert("Download will start soon");
+          this.props.history.push("/dashboard");
         }
       });
+
     event.preventDefault();
   }
 
@@ -55,20 +48,25 @@ class RStop extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid form-stop-page">
+      <div className="container-fluid generate-page">
         <div className="row justify-content-center">
-          <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
+          <div className="card  col-11 col-sm-10 col-md-8 col-lg-4 mx-2">
             <article className="card-body ">
-              <h2 className="font-weight-normal text-center">Stop Form</h2>
+              <h2 className="font-weight-normal text-center">
+                Download Form Data
+              </h2>
               <hr></hr>
+              <br></br>
               <Form>
                 <Form.Group>
                   <Form.Row>
-                    <Form.Label className="input-label">Event Name</Form.Label>
+                    <Form.Label className="event-name-label">
+                      Event Name :
+                    </Form.Label>
                   </Form.Row>
                   <Form.Row>
                     <Form.Control
-                      id="1"
+                      className="event-name-input"
                       value={this.state.name}
                       onChange={this.handleChange}
                       type="text"
@@ -76,24 +74,14 @@ class RStop extends React.Component {
                     />
                   </Form.Row>
                 </Form.Group>
+
                 <Form.Group>
                   <Form.Row>
-                    <Form.Label className="input-label">Form Name</Form.Label>
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Control
-                      id="2"
-                      value={this.state.form}
-                      onChange={this.handleChange}
-                      type="text"
-                      placeholder="Type exactly as it is"
-                    />
-                  </Form.Row>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Row>
-                    <Button className="stop-button" onClick={this.handleSubmit}>
-                      Stop
+                    <Button
+                      className="generate-button"
+                      onClick={this.handleSubmit}
+                    >
+                      Download
                     </Button>
                   </Form.Row>
                 </Form.Group>
@@ -117,4 +105,4 @@ class RStop extends React.Component {
   }
 }
 
-export default RStop;
+export default DGenerate;

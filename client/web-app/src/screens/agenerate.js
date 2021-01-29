@@ -22,24 +22,21 @@ class AGenerate extends React.Component {
   }
 
   handleSubmit(event) {
-    //console.log(this.state);
-
-    /*const data = {
-        name: this.state.name,
-      }
-
-      axios.post("",{data})
+   
+    axios.post("https://cehg.herokuapp.com/sheet", { 'title': this.state.name})
       .then(res => {
-        this.setState({valid: res.valid});
-      });*/
+        console.log(res);
+        
+        if (res.data['success'] === "False") {
+          alert("Could get Data");
+          this.props.history.push("/agenerate");
+        }
+        else {
+          alert("Download will start soon");
+          this.props.history.push("/dashboard");
+        }
+      });
 
-    if (this.state.valid === true) {
-      alert("Attendance Sheet Generated");
-      this.props.history.push("/dashboard");
-    } else {
-      alert("Could not Generate Attendance Sheet");
-      this.props.history.push("/estop");
-    }
     event.preventDefault();
   }
 
@@ -56,7 +53,7 @@ class AGenerate extends React.Component {
           <div className="card  col-11 col-sm-10 col-md-8 col-lg-4 mx-2">
             <article className="card-body ">
               <h2 className="font-weight-normal text-center">
-                Generate Atendance Sheet
+                Download Attendance Sheet
               </h2>
               <hr></hr>
               <br></br>
@@ -84,7 +81,7 @@ class AGenerate extends React.Component {
                       className="generate-button"
                       onClick={this.handleSubmit}
                     >
-                      Generate
+                      Download
                     </Button>
                   </Form.Row>
                 </Form.Group>
