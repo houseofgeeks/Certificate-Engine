@@ -3,15 +3,14 @@ import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 // eslint-disable-next-line
 import axios from "axios";
-import "./styles/rstop.css";
+import "./styles/generate.css";
 
-class RView extends React.Component {
+class DGenerate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       valid: true,
       name: "",
-      form: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,28 +18,22 @@ class RView extends React.Component {
   }
 
   handleChange(event) {
-    if (event.target.id === "1") {
-      this.setState({ name: event.target.value });
-    } else if (event.target.id === "2") {
-      this.setState({ form: event.target.value });
-    }
+    this.setState({ name: event.target.value });
   }
 
   handleSubmit(event) {
-    const data = {
-      etitle: this.state.name,
-      ftitle: this.state.form,
-    }
 
-    axios.post("http://localhost:3001/getform", data)
+    axios.post("http://localhost:3001/data", { 'title': this.state.name })
       .then(res => {
-        if (res.data['success'] === "True") {
-          console.log(res.data);
-          this.props.history.push("/rform", { data: res.data });
+        console.log(res);
+        
+        if (res.data['success'] === "False") {
+          alert("Could get Data");
+          this.props.history.push("/agenerate");
         }
         else {
-          alert("Form not Found");
-          this.props.history.push("/rview");
+          alert("Download will start soon");
+          this.props.history.push("/dashboard");
         }
       });
 
@@ -48,26 +41,32 @@ class RView extends React.Component {
   }
 
   handleBack(event) {
+    console.log(this.state);
     this.props.history.push("/dashboard");
     event.preventDefault();
   }
 
   render() {
     return (
-      <div className="container-fluid form-stop-page">
+      <div className="container-fluid generate-page">
         <div className="row justify-content-center">
-          <div className="card  col-11 col-sm-10 col-md-8 col-lg-5 mx-2">
+          <div className="card  col-11 col-sm-10 col-md-8 col-lg-4 mx-2">
             <article className="card-body ">
-              <h2 className="font-weight-normal text-center">View Form</h2>
+              <h2 className="font-weight-normal text-center">
+                Download Form Data
+              </h2>
               <hr></hr>
+              <br></br>
               <Form>
                 <Form.Group>
                   <Form.Row>
-                    <Form.Label className="input-label">Event Name</Form.Label>
+                    <Form.Label className="event-name-label">
+                      Event Name :
+                    </Form.Label>
                   </Form.Row>
                   <Form.Row>
                     <Form.Control
-                      id="1"
+                      className="event-name-input"
                       value={this.state.name}
                       onChange={this.handleChange}
                       type="text"
@@ -75,24 +74,25 @@ class RView extends React.Component {
                     />
                   </Form.Row>
                 </Form.Group>
+
                 <Form.Group>
                   <Form.Row>
-                    <Form.Label className="input-label">Form Name</Form.Label>
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Control
-                      id="2"
-                      value={this.state.form}
-                      onChange={this.handleChange}
-                      type="text"
-                      placeholder="Type exactly as it is"
-                    />
+                    <Button
+                      className="generate-button"
+                      onClick={this.handleSubmit}
+                    >
+                      Download
+                    </Button>
                   </Form.Row>
                 </Form.Group>
+
                 <Form.Group>
                   <Form.Row>
-                    <Button className="stop-button" onClick={this.handleSubmit}>
-                      View
+                    <Button
+                      className="dashboard-button"
+                      onClick={this.handleBack}
+                    >
+                      Dashboard
                     </Button>
                   </Form.Row>
                 </Form.Group>
@@ -105,4 +105,4 @@ class RView extends React.Component {
   }
 }
 
-export default RView;
+export default DGenerate;
