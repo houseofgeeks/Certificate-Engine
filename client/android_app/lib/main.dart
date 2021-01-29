@@ -28,10 +28,16 @@ class Store extends ChangeNotifier {
   String password = "";
   bool validUser = false;
 
+  String id = "-";
+  String event = "-";
+  String presence = "-";
+
+  String count = "-";
+
   Future setAuth(String userId, String password) async {
     this.userId = userId;
     this.password = password;
-    var url = 'https://codenutb.herokuapp.com/isauth';
+    var url = 'https://cehg.herokuapp.com/isauth';
     var response =
         await http.post(url, body: {'userid': userId, 'password': password});
     var decoded = json.decode(response.body);
@@ -41,6 +47,12 @@ class Store extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  Future scan() async {}
+
+  Future toggle() async {}
+
+  Future getstat() async {}
 }
 
 class Account extends StatelessWidget {
@@ -60,7 +72,7 @@ class Account extends StatelessWidget {
                         padding: EdgeInsets.all(10),
                         child: Text(
                           'Certificate Engine',
-                          style: TextStyle(fontSize: 36, color: Colors.green),
+                          style: TextStyle(fontSize: 48, color: Colors.green),
                         )),
                     Container(
                       padding: EdgeInsets.all(10),
@@ -97,7 +109,7 @@ class Account extends StatelessWidget {
                                 await store.setAuth(text.text, password.text);
                                 if (store.validUser == true) {
                                   Navigator.pushNamedAndRemoveUntil(
-                                      context, "Message", (r) => false);
+                                      context, "Scan", (r) => false);
                                 }
                               },
                             )),
@@ -121,7 +133,141 @@ class Scan extends StatelessWidget {
           body: Padding(
               padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: ListView(
-                children: <Widget>[],
+                children: <Widget>[
+                  Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        'Attendance',
+                        style: TextStyle(fontSize: 48, color: Colors.green),
+                      )),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 50, 10, 50),
+                    child: Card(
+                      child: Container(
+                          alignment: Alignment.centerLeft,
+                          padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Total Count',
+                                style: TextStyle(
+                                    fontSize: 27, color: Colors.green),
+                              ),
+                              Container(
+                                padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                                child: Text(
+                                  store.id,
+                                  style: TextStyle(
+                                      fontSize: 25, color: Colors.green),
+                                ),
+                              )
+                            ],
+                          )),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 10, 30),
+                    child: Card(
+                        child: Column(
+                      children: [
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Event Name',
+                                  style: TextStyle(
+                                      fontSize: 24, color: Colors.green),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(65, 0, 0, 0),
+                                  child: Text(
+                                    store.id,
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.green),
+                                  ),
+                                )
+                              ],
+                            )),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Identifier',
+                                  style: TextStyle(
+                                      fontSize: 24, color: Colors.green),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
+                                  child: Text(
+                                    store.id,
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.green),
+                                  ),
+                                )
+                              ],
+                            )),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Presence',
+                                  style: TextStyle(
+                                      fontSize: 24, color: Colors.green),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(92, 0, 0, 0),
+                                  child: Text(
+                                    store.id,
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.green),
+                                  ),
+                                )
+                              ],
+                            )),
+                      ],
+                    )),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                          height: 60,
+                          width: 370,
+                          padding: EdgeInsets.fromLTRB(40, 20, 50, 0),
+                          child: RaisedButton(
+                            textColor: Colors.white,
+                            color: Colors.green,
+                            child: Text('Scan'),
+                            onPressed: () async {
+                              await store.scan();
+                            },
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                          height: 60,
+                          width: 370,
+                          padding: EdgeInsets.fromLTRB(40, 20, 50, 0),
+                          child: RaisedButton(
+                            textColor: Colors.white,
+                            color: Colors.green,
+                            child: Text('Toggle Presence'),
+                            onPressed: () async {
+                              await store.toggle();
+                              await store.getstat();
+                            },
+                          )),
+                    ],
+                  ),
+                ],
               )));
     });
   }
