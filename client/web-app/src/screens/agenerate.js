@@ -23,7 +23,7 @@ class AGenerate extends React.Component {
 
   handleSubmit(event) {
    
-    axios.post("http://localhost:3001/sheet", { 'title': this.state.name})
+    axios.post("https://cehg.herokuapp.com/sheet", { 'title': this.state.name})
       .then(res => {
         console.log(res);
         
