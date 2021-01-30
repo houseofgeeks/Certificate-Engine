@@ -26,6 +26,7 @@ dependencies:
 
   http: ^0.12.2
   provider: ^3.1.0
+  qrscan: ^0.2.22
 
 
   # The following adds the Cupertino Icons font to your application.
