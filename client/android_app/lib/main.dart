@@ -56,6 +56,7 @@ class Store extends ChangeNotifier {
     var decoded = json.decode(cameraScanResult);
     this.id = decoded['id'];
     this.presence = decoded['presence'];
+    notifyListeners();
   }
 
   Future toggle() async {
@@ -69,9 +70,6 @@ class Store extends ChangeNotifier {
     var response =
         await http.post(url, body: {'title': this.event, 'id': this.id});
     var decoded = json.decode(response.body);
-
-    print(response.body);
-
     notifyListeners();
   }
 
