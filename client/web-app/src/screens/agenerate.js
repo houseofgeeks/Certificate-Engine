@@ -35,20 +35,13 @@ class AGenerate extends React.Component {
           alert("Download will start soon");
           
           const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
-
           const link = document.createElement('a');
-
           link.href = downloadUrl;
-
           link.setAttribute('download', 'sheet.zip'); //any other extension
-
           document.body.appendChild(link);
-
           link.click();
-
           link.remove();
-          //fileDownload(res.data, 'attendance_sheet.zip');
-          //this.props.history.push("/dashboard");
+          this.props.history.push("/dashboard");
         }
       });
 

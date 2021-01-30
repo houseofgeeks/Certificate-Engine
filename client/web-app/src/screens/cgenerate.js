@@ -22,19 +22,28 @@ class CGenerate extends React.Component {
   }
 
   handleSubmit(event) {
-    axios.post("http://localhost:3001/certificate", { 'title': this.state.name })
+    axios.post("http://localhost:3001/certificate", { 'title': this.state.name },
+      { responseType: 'arraybuffer' })
       .then(res => {
-        console.log(res);
 
         if (res.data['success'] === "False") {
           alert("Could get Data");
-          this.props.history.push("/agenerate");
+          this.props.history.push("/cgenerate");
         }
         else {
           alert("Download will start soon");
+
+          const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.setAttribute('download', 'certificate.zip'); //any other extension
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
           this.props.history.push("/dashboard");
         }
       });
+
     event.preventDefault();
   }
 
