@@ -55,7 +55,13 @@ class Store extends ChangeNotifier {
     String cameraScanResult = await scanner.scan();
     var decoded = json.decode(cameraScanResult);
     this.id = decoded['id'];
-    this.presence = decoded['presence'];
+
+    if (decoded['presence'].compareTo("0") == 0) {
+      this.presence = "Absent";
+    } else {
+      this.presence = "Present";
+    }
+
     notifyListeners();
   }
 
