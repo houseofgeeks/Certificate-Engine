@@ -29,8 +29,8 @@ class Store extends ChangeNotifier {
   String password = "";
   bool validUser = false;
 
-  String id = "sam";
-  String event = "ev";
+  String id = "";
+  String event = "";
   String presence = "Absent";
 
   int pcount = 0;
@@ -111,6 +111,7 @@ class Store extends ChangeNotifier {
 class Account extends StatelessWidget {
   final TextEditingController text = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final TextEditingController event = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Consumer<Store>(
@@ -127,6 +128,16 @@ class Account extends StatelessWidget {
                           'Certificate Engine',
                           style: TextStyle(fontSize: 44, color: Colors.green),
                         )),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                      child: TextFormField(
+                        controller: event,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Event Name',
+                        ),
+                      ),
+                    ),
                     Container(
                       padding: EdgeInsets.all(10),
                       child: TextFormField(
@@ -159,6 +170,7 @@ class Account extends StatelessWidget {
                               color: Colors.green,
                               child: Text('Log In'),
                               onPressed: () async {
+                                store.event = event.text;
                                 await store.setAuth(text.text, password.text);
                                 if (store.validUser == true) {
                                   Navigator.pushNamedAndRemoveUntil(
