@@ -15,7 +15,8 @@ class Dashboard extends React.Component {
     this.handleRegistrationStart = this.handleRegistrationStart.bind(this);
     this.handleRegistrationStop = this.handleRegistrationStop.bind(this);
     this.handleRegistrationView = this.handleRegistrationView.bind(this);
-    this.handleAttendanceGeneration = this.handleAttendanceGeneration.bind(this);
+    this.handleAttendanceView = this.handleAttendanceView.bind(this);
+    this.handleDataGeneration = this.handleDataGeneration.bind(this);
     this.handleCertificateGeneration = this.handleCertificateGeneration.bind(this);
   }
 
@@ -50,15 +51,21 @@ class Dashboard extends React.Component {
     this.props.history.push("/rview");
   }
 
-  handleAttendanceGeneration(event) {
+  handleAttendanceView(event) {
     console.log("Generation Started");
     this.props.history.push("/agenerate");
+  }
+
+  handleDataGeneration(event) {
+    console.log("Generation Started");
+    this.props.history.push("/dgenerate");
   }
 
   handleCertificateGeneration(event) {
     console.log("Generation Started");
     this.props.history.push("/cgenerate");
   }
+
 
   render() {
     return (
@@ -103,8 +110,11 @@ class Dashboard extends React.Component {
               <span className="card-title h2">Certificate</span>
               <hr></hr>
               <p> Start create your House of Geeks certifcate now.</p>
-              <Button className="button" onClick={this.handleAttendanceGeneration}>
+              <Button className="button" onClick={this.handleAttendanceView}>
                 Attendance Sheet
+              </Button>
+              <Button className="button" onClick={this.handleDataGeneration}>
+                Form Data
               </Button>
               <Button className="button" onClick={this.handleCertificateGeneration}>
                 Certificate

@@ -22,24 +22,28 @@ class CGenerate extends React.Component {
   }
 
   handleSubmit(event) {
-    //console.log(this.state);
-
-    /*const data = {
-        name: this.state.name,
-      }
-
-      axios.post("",{data})
+    axios.post("http://localhost:3001/certificate", { 'title': this.state.name },
+      { responseType: 'arraybuffer' })
       .then(res => {
-        this.setState({valid: res.valid});
-      });*/
 
-    if (this.state.valid === true) {
-      alert("Certificate Generation Started Succesfully");
-      this.props.history.push("/dashboard");
-    } else {
-      alert("Could Start Certificate Generation");
-      this.props.history.push("/estop");
-    }
+        if (res.data['success'] === "False") {
+          alert("Could get Data");
+          this.props.history.push("/cgenerate");
+        }
+        else {
+          alert("Download will start soon");
+
+          const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.setAttribute('download', 'certificate.zip'); //any other extension
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          this.props.history.push("/dashboard");
+        }
+      });
+
     event.preventDefault();
   }
 
@@ -56,7 +60,7 @@ class CGenerate extends React.Component {
           <div className="card  col-11 col-sm-10 col-md-8 col-lg-4 mx-2">
             <article className="card-body ">
               <h2 className="font-weight-normal text-center">
-                Generate Certificate
+                Download Certificate
               </h2>
               <hr></hr>
               <br></br>
@@ -84,7 +88,7 @@ class CGenerate extends React.Component {
                       className="generate-button"
                       onClick={this.handleSubmit}
                     >
-                      Generate
+                      Download
                     </Button>
                   </Form.Row>
                 </Form.Group>
