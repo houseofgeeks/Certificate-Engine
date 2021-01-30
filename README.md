@@ -4,7 +4,7 @@ This is a development repository of Certificate Engine for House Of Geeks , the 
 
 ## Web-App
 
-- built with ReactJs
+- Built with ReactJs
 
 ### Getting Started
 
