@@ -63,7 +63,7 @@ class AForm extends React.Component
     handleSubmit(event) {
 
 
-      axios.post("https://cehg.herokuapp.com/addSheet", { title: classref.state.title, id: classref.state.data[0].text})
+      axios.post("http://localhost:3001/addSheet", { title: classref.state.title, id: classref.state.data[0].text})
       .then(res => {
         console.log(res);
         //classref.setState({valid: res.valid});

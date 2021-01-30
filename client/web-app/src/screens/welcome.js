@@ -13,7 +13,15 @@ class Welcome extends React.Component
     }
 
     handleClick() {
-    this.props.history.push("/login");
+    this.props.history.push("/login"); 
+  }
+
+  handleClickA() {
+    this.props.history.push("/aview");
+  }
+
+  handleClickC() {
+    this.props.history.push("/rview");
   }
 
     render() {
@@ -29,17 +37,21 @@ class Welcome extends React.Component
                      <span className="navbar-toggler-icon"></span>
                  </button>
 
-                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav ml-auto">
-                       <li>
-                         <button className="btn btn-sm btn-outline-secondary log-button text-white" onClick={() => this.handleClick()} type="button">Login</button>
-                       </li>
-                    </ul>
-                 </div>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul className="navbar-nav ml-auto">
+                    <li>
+                      <button className="btn btn-sm btn-outline-secondary log-button text-white" onClick={() => this.handleClick()} type="button">Admin</button>
+                    </li>
+                  </ul>
+                </div>
              </nav>
              <div className="col-12 col-md-7  heading text-white">
                <h3 className="head1">House of Geeks</h3><br></br>
-               <h1 className="head2">Certificate Engine</h1>
+               <h1 className="head2">Certificate Engine</h1><br></br><br></br>
+               <div className="row">
+                  <button className="btn btn-md btn-outline-secondary log-button text-white col-5" onClick={() => this.handleClickC()} type="button">Form</button>
+                  <button className="btn btn-md btn-outline-secondary log-button text-white col-5" onClick={() => this.handleClickA()} type="button">Attend</button>
+               </div>
              </div>
              <div className="col-12 col-md-5 ">
                <img className="logo" src={logo} alt="logo"></img>
