@@ -25,7 +25,7 @@ class EStop extends React.Component
 
     handleSubmit(event) {
 
-      axios.post("https://cehg.herokuapp.com/stopevent", { 'title': this.state.name})
+      axios.post("http://localhost:3001/stopevent", { 'title': this.state.name})
       .then(res => {
         if (res.data['success'] === "True")
         {

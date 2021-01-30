@@ -23,9 +23,9 @@ class AGenerate extends React.Component {
 
   handleSubmit(event) {
    
-    axios.post("https://cehg.herokuapp.com/sheet", { 'title': this.state.name})
+    axios.post("http://localhost:3001/sheet", { 'title': this.state.name} ,
+      { responseType: 'arraybuffer'})
       .then(res => {
-        console.log(res);
         
         if (res.data['success'] === "False") {
           alert("Could get Data");
@@ -33,7 +33,22 @@ class AGenerate extends React.Component {
         }
         else {
           alert("Download will start soon");
-          this.props.history.push("/dashboard");
+          
+          const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
+
+          const link = document.createElement('a');
+
+          link.href = downloadUrl;
+
+          link.setAttribute('download', 'sheet.zip'); //any other extension
+
+          document.body.appendChild(link);
+
+          link.click();
+
+          link.remove();
+          //fileDownload(res.data, 'attendance_sheet.zip');
+          //this.props.history.push("/dashboard");
         }
       });
 

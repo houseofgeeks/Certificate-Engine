@@ -33,7 +33,7 @@ class Login extends React.Component {
         password: this.state.password
       }
 
-      axios.post("https://cehg.herokuapp.com/isauth",user)
+      axios.post("http://localhost:3001/isauth",user)
       .then(res => {
         if (res.data['success'] === "True") {
           this.setState({ valid: res.data['success'] });
