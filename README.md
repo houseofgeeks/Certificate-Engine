@@ -4,7 +4,7 @@ This is a development repository of Certificate Engine for House Of Geeks , the 
 
 ## Web-App
 
-- built with [React-native](https://reactnative.dev/docs/getting-started)
+- built with ReactJs
 
 ### Getting Started
 
@@ -18,7 +18,7 @@ Please read [here](https://github.com/houseofgeeks/cehg/blob/master/client/web-a
 
 ## Android-App
 
-Uses ReactJS
+Uses Flutter
 
 ## Contributing Guide
 
