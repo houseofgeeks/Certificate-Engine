@@ -29,7 +29,7 @@ class Store extends ChangeNotifier {
   String password = "";
   bool validUser = false;
 
-  String id = "";
+  String id = "Scan and Toggle";
   String event = "";
   String presence = "Absent";
 
@@ -177,6 +177,7 @@ class Account extends StatelessWidget {
                                 store.event = event.text;
                                 await store.setAuth(text.text, password.text);
                                 if (store.validUser == true) {
+                                  await store.getstat();
                                   Navigator.pushNamedAndRemoveUntil(
                                       context, "Scan", (r) => false);
                                 }
@@ -295,6 +296,7 @@ class Scan extends StatelessWidget {
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(65, 0, 0, 0),
+                                  width: 200,
                                   child: Text(
                                     store.event,
                                     style: TextStyle(
@@ -315,6 +317,7 @@ class Scan extends StatelessWidget {
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
+                                  width: 235,
                                   child: Text(
                                     store.id,
                                     style: TextStyle(
