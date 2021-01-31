@@ -3,6 +3,7 @@ const fs = require('fs');
 var QRCode = require('qrcode');
 const doc = new PDFDocument();
 var zip = require('express-zip');
+const fzip  = require('zip-a-folder');
 
 const distanceMargin = 18;
 const maxWidth = 140;
@@ -20,6 +21,27 @@ function jumpLine(doc, lines) {
     for (let index = 0; index < lines; index++) {
         doc.moveDown();
     }
+}
+
+const removeDir = function(path) {
+  if (fs.existsSync(path)) {
+    const files = fs.readdirSync(path)
+
+    if (files.length > 0) {
+      files.forEach(function(filename) {
+        if (fs.statSync(path + "/" + filename).isDirectory()) {
+          removeDir(path + "/" + filename)
+        } else {
+          fs.unlinkSync(path + "/" + filename)
+        }
+      })
+      fs.rmdirSync(path)
+    } else {
+      fs.rmdirSync(path)
+    }
+  } else {
+    console.log("Directory path not found.")
+  }
 }
 
 exports.downloadSheet = (req, res, next) => {
@@ -48,15 +70,84 @@ exports.downloadSheet = (req, res, next) => {
 };
 
 exports.downloadData = (req, res, next) => {
-    res.send("Data");
-    doc.pipe(fs.createWriteStream('output.pdf'));
+    var Model = require('../model/data');
+    Model.find({ etitle: req.body.etitle, ftitle: req.body.ftitle }, async function (err, form) {
 
-    doc.addPage().
-        fontSize(25).
-        text("Hi");
+        if (err || !form) {
+            res.json({ success: 'False', data: 'No Form Found' });
+        } else {
+            var rep = []
+            var k = 0;
+            for (i of form) {
 
-    doc.end();
+                var decoded = JSON.parse(i.data);
+                await fs.mkdir(k.toString(), () => {});
+                const doc = new PDFDocument({ layout: 'portrait', size: 'A4', });
+                doc.pipe(fs.createWriteStream(k.toString() + '/' + form[0].etitle + "_" + form[0].ftitle + '.pdf'));
 
+                for(var j = 0; j <  i.file.length; j++)
+                {
+                    //console.log(i.file[j].name);
+                    await fs.writeFile(k.toString() + '/' + i.file[j].name, i.file[j].file, 'binary', () => { });
+                }
+
+                doc
+                    .fontSize(48)
+                    .fill('#021c27')
+                    .text(form[0].etitle, {
+                        align: 'center',
+                    });
+                doc
+                    .fontSize(36)
+                    .fill('#021c27')
+                    .text(form[0].ftitle, {
+                        align: 'center',
+                    });
+                doc.lineWidth(10);
+                doc.lineCap('round')
+                    .moveTo(150, 50)
+                    .lineTo(450, 50)
+                    .stroke();
+                doc.lineCap('round')
+                    .moveTo(150, 180)
+                    .lineTo(450, 180)
+                    .stroke();
+                jumpLine(doc, 3);
+
+                for(var key in decoded)
+                {
+                    if (key !== "undefined" && key !== "fname" && key !== "ename")
+                    {
+                        doc
+                            .fontSize(36)
+                            .fill('#021c27')
+                            .text(key + ": " + decoded[key], {
+                                align: 'left',
+                            });
+                    }
+                }
+                doc
+                    .fontSize(36)
+                    .fill('#021c27')
+                    .text("------------------------------------", {
+                        align: 'left',
+                    });
+                jumpLine(doc, 2);
+                await doc.end();
+                await fzip.zip(k.toString(), k.toString() + '.zip');
+                rep.push({ path: k.toString() + '.zip' , name: k.toString() + '.zip'});    
+                k++;
+            }
+
+            await res.zip(rep, "form_data.zip", async () => {
+                for (var j = 0; j < k; j++) {
+                    await removeDir(j.toString());
+                    await fs.unlink(j.toString() + '.zip', (err) => {
+                    });
+                }
+            });
+        }
+    });
 };
 
 exports.downloadCertificate = (req, res, next) => {
@@ -70,7 +161,7 @@ exports.downloadCertificate = (req, res, next) => {
             var rep = []
             for (i of sheet.data) {
 
-                if (i['id'] === "0") continue;
+                if (i['id'] === "0" || i['presence'] === "0") continue;
            
                 const doc = new PDFDocument({
                     layout: 'landscape',

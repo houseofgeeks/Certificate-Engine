@@ -25,7 +25,7 @@ class EView extends React.Component
 
     handleSubmit(event) {
 
-      axios.post("http://localhost:3001/getevent", { 'title': this.state.name})
+      axios.post("https://cehg.herokuapp.com/getevent", { 'title': this.state.name})
         .then(res => {
           console.log(res);
           if (res.data['success'] === "True") {

@@ -22,7 +22,7 @@ class CGenerate extends React.Component {
   }
 
   handleSubmit(event) {
-    axios.post("http://localhost:3001/certificate", { 'title': this.state.name },
+    axios.post("https://cehg.herokuapp.com/certificate", { 'title': this.state.name },
       { responseType: 'arraybuffer' })
       .then(res => {
 

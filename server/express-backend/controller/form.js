@@ -33,8 +33,18 @@ exports.stopForm = (req, res, next) => {
                 console.log("Error in deleting Form");
                 res.json({ success: 'False', data: "Error in Deleting Form" });
             } else {
-                console.log("Form deleted");
-                res.json({ success: 'True', data: "Form Deleted Successfully" });
+                var Data = require('../model/data');
+                Data.deleteMany({ etitle: req.body.etitle, ftitle: req.body.ftitle },
+                    function (err, docs) {
+                        if (err || !docs) {
+                            console.log("Error in deleting Data");
+                            res.json({ success: 'False', data: "Error in Deleting Data" });
+                        } else {
+
+                            console.log("Form deleted");
+                            res.json({ success: 'True', data: "Form and Data Deleted Successfully" });
+                        }
+                    });
             }
         });
 };
@@ -60,12 +70,19 @@ exports.submitForm = (req, res, next) => {
     delete req['ename'];
     delete req['fname'];
 
+    var bufArray = [];
+    for (i of req.files)
+    {
+        var fileBuffer = Buffer.from(i.buffer);
+        bufArray.push({name:i.originalname, mimetype:i.mimetype, file:fileBuffer});
+    }
+
     var Model = require('../model/data');
     var model = new Model({
         etitle: etitle,
         ftitle: ftitle,
         data: JSON.stringify(req.body),
-        file: req.files
+        file: bufArray
     });
     model.save()
         .then(doc => {

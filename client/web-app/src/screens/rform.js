@@ -126,7 +126,7 @@ class RForm extends React.Component
       data.append('ename', classref.state.ename);
       data.append('fname', classref.state.fname);
 
-      axios.post("http://localhost:3001/submitform",data)
+      axios.post("https://cehg.herokuapp.com/submitform",data)
       .then(res => {
         console.log(res);
         //classref.setState({valid: res.valid});
