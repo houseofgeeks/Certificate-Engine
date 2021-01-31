@@ -15,10 +15,8 @@ var DataSchema = new mongoose.Schema({
         required: true
     },
 
-    file:{
-        type:Buffer
-    }
-    
+    file:[{name:String, mimetype:String,file:Buffer}]
+
 });
 
 var Data = mongoose.model('Data', DataSchema);

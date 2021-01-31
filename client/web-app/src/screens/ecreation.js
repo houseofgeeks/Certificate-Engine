@@ -64,7 +64,7 @@ class ECreation extends React.Component
 
       data = JSON.stringify(data);
 
-      axios.post("http://localhost:3001/createevent", 
+      axios.post("https://cehg.herokuapp.com/createevent", 
       { 'title': this.state.title, 'data':data})
       .then(res => {
 

@@ -11,8 +11,10 @@ class DGenerate extends React.Component {
     this.state = {
       valid: true,
       name: "",
+      form: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeF = this.handleChangeF.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBack = this.handleBack.bind(this);
   }
@@ -21,18 +23,30 @@ class DGenerate extends React.Component {
     this.setState({ name: event.target.value });
   }
 
+  handleChangeF(event) {
+    this.setState({ form: event.target.value });
+  }
+
   handleSubmit(event) {
 
-    axios.post("http://localhost:3001/data", { 'title': this.state.name })
+    axios.post("https://cehg.herokuapp.com/data", { 'etitle': this.state.name, 'ftitle': this.state.form },
+      { responseType: 'arraybuffer' })
       .then(res => {
-        console.log(res);
-        
+
         if (res.data['success'] === "False") {
           alert("Could get Data");
-          this.props.history.push("/agenerate");
+          this.props.history.push("/dgenerate");
         }
         else {
           alert("Download will start soon");
+
+          const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.setAttribute('download', 'form_data.zip'); //any other extension
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
           this.props.history.push("/dashboard");
         }
       });
@@ -69,6 +83,23 @@ class DGenerate extends React.Component {
                       className="event-name-input"
                       value={this.state.name}
                       onChange={this.handleChange}
+                      type="text"
+                      placeholder="Type exactly as it is"
+                    />
+                  </Form.Row>
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Row>
+                    <Form.Label className="event-name-label">
+                      Form Name :
+                    </Form.Label>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Control
+                      className="event-name-input"
+                      value={this.state.form}
+                      onChange={this.handleChangeF}
                       type="text"
                       placeholder="Type exactly as it is"
                     />

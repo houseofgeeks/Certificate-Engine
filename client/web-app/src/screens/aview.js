@@ -25,7 +25,7 @@ class AView extends React.Component
 
     handleSubmit(event) {
 
-      axios.post("http://localhost:3001/getsheet", { 'title': this.state.name})
+      axios.post("https://cehg.herokuapp.com/getsheet", { 'title': this.state.name})
         .then(res => {
           if (res.data['success'] === "True") {
             this.props.history.push("/aform", { data: res.data.data.title});
