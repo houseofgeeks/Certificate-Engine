@@ -161,7 +161,7 @@ exports.downloadCertificate = (req, res, next) => {
             var rep = []
             for (i of sheet.data) {
 
-                if (i['id'] === "0") continue;
+                if (i['id'] === "0" || i['presence'] === "0") continue;
            
                 const doc = new PDFDocument({
                     layout: 'landscape',
