@@ -2,9 +2,13 @@
 
 This is a development repository of Certificate Engine for House Of Geeks , the Technical Society of [Indian Institute of Information Technology, Ranchi](http://iiitranchi.ac.in/).
 
+## Admin-Credential
+- Username:prskid
+- Password:1234
+
 ## Web-App
 
-- Built with ReactJs
+- Built with MERN-Stack
 
 ### Getting Started
 
