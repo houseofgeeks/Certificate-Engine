@@ -1,0 +1,43 @@
+.login-page {
+  background-image: url(../../assets/Background.svg);
+  background-size: cover;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-button {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 40px;
+  margin-top: 10px;
+  background-color: #7f53ac;
+  background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+}
+.login-button:hover {
+  background-color: #7f53ac;
+  background-image: linear-gradient(315deg, #8137cc 0%, #284df1 84%);
+}
+
+.login-page .card {
+  padding: 30px 10px 70px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 14vh;
+}
+
+.login-page .input {
+  border-radius: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 576px) {
+  .login-page .card {
+    padding: 30px 4px 70px 4px;
+  }
+  .login-page .input {
+    width: 100%;
+  }
+}

@@ -1,0 +1,63 @@
+ .welcome .welcome-back {
+   background-image: url(../../assets/Background.svg);
+   background-size: cover;
+   background-position-x: -0.4px;
+   width: auto;
+   height: auto;
+   min-height: 100vh;
+   background-attachment: fixed;
+   padding-bottom: 40px;
+  
+ }
+ .welcome .heading {
+   padding:150px 60px;
+ }
+.welcome .logo {
+  width: 70%;
+  margin: 70px 20px 40px 20px;
+  height: auto;
+}
+.welcome .log-button {
+  width: 100px;
+  border-radius: 20px;
+  border: 1px solid white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.welcome .head1{
+  font-size: 3vw;
+}
+.welcome .head2{
+  font-size: 5vw;
+}
+.welcome .intro-line{
+  font-size: 2vw;
+}
+@media (max-width:767px){
+  .welcome .head1{
+    font-size: 8vw;
+  }
+  .welcome .head2{
+    font-size: 10vw;
+  }
+  .welcome .heading {
+    padding:50px 6px;
+    text-align: center;
+  }
+  .welcome .logo {
+    width: 60%;
+    margin: 5px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .welcome .brand-heading{
+    display: none;
+  }
+  .welcome .intro-line{
+    font-size: 5vw;
+    margin-top: 50px;
+  }
+}
