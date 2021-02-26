@@ -130,7 +130,8 @@ class Account extends StatelessWidget {
                         padding: EdgeInsets.all(22),
                         child: Text(
                           'Certificate Engine',
-                          style: TextStyle(fontSize: 44, color: Colors.green),
+                          style: TextStyle(
+                              fontSize: 44, color: Colors.greenAccent),
                         )),
                     Container(
                       padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -170,9 +171,12 @@ class Account extends StatelessWidget {
                             width: 385,
                             padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
                             child: RaisedButton(
-                              textColor: Colors.white,
-                              color: Colors.green,
-                              child: Text('Log In'),
+                              textColor: Colors.black,
+                              color: Colors.greenAccent,
+                              child: Text(
+                                'Log In',
+                                style: TextStyle(fontSize: 20),
+                              ),
                               onPressed: () async {
                                 store.event = event.text;
                                 await store.setAuth(text.text, password.text);
@@ -209,7 +213,8 @@ class Scan extends StatelessWidget {
                       padding: EdgeInsets.all(10),
                       child: Text(
                         'Attendance',
-                        style: TextStyle(fontSize: 48, color: Colors.green),
+                        style:
+                            TextStyle(fontSize: 48, color: Colors.greenAccent),
                       )),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 50, 10, 50),
@@ -224,7 +229,7 @@ class Scan extends StatelessWidget {
                                 Text(
                                   'Registered',
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.green),
+                                      fontSize: 24, color: Colors.greenAccent),
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
@@ -244,7 +249,7 @@ class Scan extends StatelessWidget {
                                 Text(
                                   'Present',
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.green),
+                                      fontSize: 24, color: Colors.greenAccent),
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(117, 0, 0, 0),
@@ -264,7 +269,7 @@ class Scan extends StatelessWidget {
                                 Text(
                                   'Absent',
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.green),
+                                      fontSize: 24, color: Colors.greenAccent),
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(124, 0, 0, 0),
@@ -292,7 +297,7 @@ class Scan extends StatelessWidget {
                                 Text(
                                   'Event Name',
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.green),
+                                      fontSize: 24, color: Colors.greenAccent),
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(65, 0, 0, 0),
@@ -313,7 +318,7 @@ class Scan extends StatelessWidget {
                                 Text(
                                   'Identifier',
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.green),
+                                      fontSize: 24, color: Colors.greenAccent),
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
@@ -334,7 +339,7 @@ class Scan extends StatelessWidget {
                                 Text(
                                   'Presence',
                                   style: TextStyle(
-                                      fontSize: 24, color: Colors.green),
+                                      fontSize: 24, color: Colors.greenAccent),
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(92, 0, 0, 0),
@@ -356,9 +361,9 @@ class Scan extends StatelessWidget {
                           width: 370,
                           padding: EdgeInsets.fromLTRB(40, 20, 50, 0),
                           child: RaisedButton(
-                            textColor: Colors.white,
-                            color: Colors.green,
-                            child: Text('Scan'),
+                            textColor: Colors.black,
+                            color: Colors.greenAccent,
+                            child: Text('Scan', style: TextStyle(fontSize: 20)),
                             onPressed: () async {
                               await store.scan();
                             },
@@ -372,9 +377,10 @@ class Scan extends StatelessWidget {
                           width: 370,
                           padding: EdgeInsets.fromLTRB(40, 20, 50, 0),
                           child: RaisedButton(
-                            textColor: Colors.white,
-                            color: Colors.green,
-                            child: Text('Toggle Presence'),
+                            textColor: Colors.black,
+                            color: Colors.greenAccent,
+                            child: Text('Toggle Presence',
+                                style: TextStyle(fontSize: 20)),
                             onPressed: () async {
                               await store.toggle();
                               await store.getstat();
