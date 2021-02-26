@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5eb0191a-3976-4edf-81ad-682c35049427" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-    </list>
+    <list default="true" id="5eb0191a-3976-4edf-81ad-682c35049427" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,5 +52,21 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="100" y="100" width="1336" height="664" key="AVDManager/0.0.1536.864@0.0.1536.864" timestamp="1614326770091" />
+    <state width="1466" height="313" key="GridCell.Tab.0.bottom" timestamp="1614327242180">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1466" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
+    <state width="1466" height="313" key="GridCell.Tab.0.center" timestamp="1614327242180">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1466" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
+    <state width="1466" height="313" key="GridCell.Tab.0.left" timestamp="1614327242180">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1466" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
+    <state width="1466" height="313" key="GridCell.Tab.0.right" timestamp="1614327242180">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1466" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
   </component>
 </project>
