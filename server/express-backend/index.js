@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 
 var cors = require('cors');
-app.use(cors({ origin: true }));
+app.use(cors({origin: true}));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,7 +49,7 @@ app.post('/getsheet', attendance.getSheet);
 app.post('/certificate', download.downloadCertificate);
 app.post('/sheet', download.downloadSheet);
 app.post('/data', download.downloadData);
-
+app.get('/verify', download.verifyCertificate)
 
 app.listen(process.env.PORT || 3001,
     () => console.log("Server is running..."));

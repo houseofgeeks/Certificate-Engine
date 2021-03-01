@@ -111,7 +111,7 @@ class Dashboard extends React.Component {
               <hr></hr>
               <p> Start create your House of Geeks certifcate now.</p>
               <Button className="button" onClick={this.handleAttendanceView}>
-                Attendance Sheet
+                Attendance QR-Codes
               </Button>
               <Button className="button" onClick={this.handleDataGeneration}>
                 Form Data

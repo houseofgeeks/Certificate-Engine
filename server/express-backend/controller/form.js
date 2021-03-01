@@ -74,7 +74,7 @@ exports.submitForm = (req, res, next) => {
     for (i of req.files)
     {
         var fileBuffer = Buffer.from(i.buffer);
-        bufArray.push({name:i.originalname, mimetype:i.mimetype, file:fileBuffer});
+        bufArray.push({name:i.originalname, mimetype:"i.mimetype", file:fileBuffer});
     }
 
     var Model = require('../model/data');

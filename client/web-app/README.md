@@ -1,6 +1,32 @@
-# Certificate Engine- WebApp
+# Certificate Engine-WebApp
 
-This is a development repository of Certificate Engine for House Of Geeks , the Technical Society of [Indian Institute of Information Technology, Ranchi](http://iiitranchi.ac.in/).
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/1.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/2.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/3.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/4.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/5.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/6.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/7.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/8.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/9.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/10.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/11.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/12.png?raw=true)
+
+![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/web-app/Preview/13.png?raw=true)
+
+
 
 ## Getting Started
 
