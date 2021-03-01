@@ -11,18 +11,46 @@ class CGenerate extends React.Component {
     this.state = {
       valid: true,
       name: "",
+      type: "",
+      label: "CSV Data",
+      browse: "",
+      file: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBack = this.handleBack.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ name: event.target.value });
+  handleChange(event) {   
+    switch(event.target.id){
+      case "name":
+        this.setState({ name: event.target.value });
+        break;
+      case "type":
+        this.setState({ type: event.target.value });
+        break;
+      case "csv":
+        this.setState({ file: event.target.files[0] });
+        this.setState({ browse: event.target.files[0].name }, () => {
+          if (this.props.onChange) {
+            this.props.onChange(this.state);
+          }
+        });
+        break
+    }
   }
 
   handleSubmit(event) {
-    axios.post("https://cehg.herokuapp.com/certificate", { 'title': this.state.name },
+
+    var data = new FormData();
+
+    data.append("title", this.state.name);
+    data.append("type", this.state.type);
+    data.append("files", this.state.file);
+
+    
+
+    axios.post("https://cehg.herokuapp.com/certificate", data,
       { responseType: 'arraybuffer' })
       .then(res => {
 
@@ -73,6 +101,7 @@ class CGenerate extends React.Component {
                   </Form.Row>
                   <Form.Row>
                     <Form.Control
+                      id="name"
                       className="event-name-input"
                       value={this.state.name}
                       onChange={this.handleChange}
@@ -82,6 +111,45 @@ class CGenerate extends React.Component {
                   </Form.Row>
                 </Form.Group>
 
+                <Form.Group>
+                  <Form.Row>
+                    <Form.Label className="event-name-label">
+                      Certificate Type :
+                    </Form.Label>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Control
+                      id="type"
+                      as="select"
+                      className="col-12 col-md-11 mx-auto"
+                      onChange={this.handleChange}
+                    >
+                      <option>Choose</option>
+                      <option>Winner</option>
+                      <option>Runner Up</option>
+                      <option>Participation</option>
+                      <option>Attandance</option>
+                      
+                    </Form.Control>
+                  </Form.Row>
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Row>
+                    <Form.Label className="input-label col-12 col-md-11 mx-auto">{this.state.label}</Form.Label>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.File
+                      id="csv"
+                      className="col-12 col-md-11 mx-auto"
+                      label={this.state.browse}
+                      data-browse="Browse"
+                      custom
+                      onChange={this.handleChange} />
+                  </Form.Row>
+                </Form.Group>
+
+            
                 <Form.Group>
                   <Form.Row>
                     <Button
