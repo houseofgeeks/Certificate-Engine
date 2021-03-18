@@ -1,0 +1,12 @@
+sudo docker-compose up -d --build
+sudo docker-compose ps
+sudo  docker-compose run --publish 5050:3000 fcehg
+
+sudo docker tag web-app_fcehg  prskid1000/fcehg
+sudo docker login
+sudo docker push prskid1000/fcehg
+
+kubectl create -f kube.yaml
+kubectl delete -f kube.yaml
+kubectl get deploy,po
+kubectl get svc
