@@ -3,5 +3,5 @@ services:
   fcehg:
     build: .
     ports:
-      - '5050:3000'
+      - '3000:3000'
     container_name: fcehg
