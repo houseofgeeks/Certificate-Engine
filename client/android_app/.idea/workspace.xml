@@ -1,8 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5eb0191a-3976-4edf-81ad-682c35049427" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/frame.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/db/db.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/db/models/client.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/db/queries/client.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/disk/store.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/layouts/account.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/layouts/home.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/services.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/store/store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/android_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/android_app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Preview/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Preview/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Preview/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +60,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_4_XL_API_30]" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1p0iu0dlFjz1l1x8lLOy3sxDpbj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,25 +109,57 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="100" width="1336" height="664" key="AVDManager" timestamp="1614326770091">
+    <state x="401" y="105" key="#_main.dart" timestamp="1630646970561">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="100" y="100" width="1336" height="664" key="AVDManager/0.0.1536.864@0.0.1536.864" timestamp="1614326770091" />
-    <state width="1466" height="313" key="GridCell.Tab.0.bottom" timestamp="1614327242180">
+    <state x="401" y="105" key="#_main.dart/0.0.1536.864@0.0.1536.864" timestamp="1630646970561" />
+    <state x="219" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1630646985506">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1466" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
-    <state width="1466" height="313" key="GridCell.Tab.0.center" timestamp="1614327242180">
+    <state x="219" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1630646985506" />
+    <state x="499" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1630646176107">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1466" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
-    <state width="1466" height="313" key="GridCell.Tab.0.left" timestamp="1614327242180">
+    <state x="499" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1630646176107" />
+    <state x="100" y="100" width="1336" height="664" key="AVDManager" timestamp="1630670773649">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1466" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
-    <state width="1466" height="313" key="GridCell.Tab.0.right" timestamp="1614327242180">
+    <state x="100" y="100" width="1336" height="664" key="AVDManager/0.0.1536.864@0.0.1536.864" timestamp="1630670773649" />
+    <state x="496" y="128" key="FileChooserDialogImpl" timestamp="1630582999613">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1466" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614327242180" />
+    <state x="496" y="128" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1630582999613" />
+    <state width="1481" height="319" key="GridCell.Tab.0.bottom" timestamp="1630679679346">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1481" height="319" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1630679679346" />
+    <state width="1481" height="319" key="GridCell.Tab.0.center" timestamp="1630679679346">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1481" height="319" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1630679679346" />
+    <state width="1481" height="319" key="GridCell.Tab.0.left" timestamp="1630679679346">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1481" height="319" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1630679679346" />
+    <state width="1481" height="319" key="GridCell.Tab.0.right" timestamp="1630679679346">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1481" height="319" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1630679679346" />
+    <state x="153" y="0" key="SettingsEditor" timestamp="1630600665802">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="153" y="0" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1630600665802" />
+    <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1630664397940">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.864@0.0.1536.864" timestamp="1630664397940" />
+    <state x="341" y="193" key="run.anything.popup" timestamp="1630670614274">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="341" y="193" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1630670614274" />
+    <state x="342" y="0" width="840" height="862" key="search.everywhere.popup" timestamp="1630670841926">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="342" y="0" width="840" height="862" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1630670841926" />
   </component>
 </project>
