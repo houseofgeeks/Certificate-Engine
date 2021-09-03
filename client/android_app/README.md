@@ -1,14 +1,14 @@
 # Certificate-Engine-Mobile
 
-![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/android_app/Preview/1.png?raw=true)
+![2](https://github.com/prskid1000/Certificate-Engine/blob/master/client/android_app/Preview/1.png?raw=true)
 
-![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/android_app/Preview/2.png?raw=true)
+![2](https://github.com/prskid1000/Certificate-Engine/blob/master/client/android_app/Preview/2.png?raw=true)
 
-![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/android_app/Preview/3.png?raw=true)
+![2](https://github.com/prskid1000/Certificate-Engine/blob/master/client/android_app/Preview/3.png?raw=true)
 
-![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/android_app/Preview/4.png?raw=true)
+![2](https://github.com/prskid1000/Certificate-Engine/blob/master/client/android_app/Preview/4.png?raw=true)
 
-![2](https://github.com/Appefy/Certificate-Engine-Parent/blob/main/client/android_app/Preview/5.png?raw=true)
+![2](https://github.com/prskid1000/Certificate-Engine/blob/master/client/android_app/Preview/5.png?raw=true)
 
 ## Getting Started
 
